@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    ghazi skima laravel test
                 </div>
 
                 <div class="links">
