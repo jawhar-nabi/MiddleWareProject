@@ -106,9 +106,8 @@
       
     </header>
 
-  
-
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay" style="background-image: url(images/85.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+		
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
@@ -117,8 +116,8 @@
             
             <div class="row justify-content-center mb-4">
               <div class="col-md-10 text-center">
-                <h1 data-aos="fade-up">Find Nearby <span class="typed-words"></span></h1>
-                <p data-aos="fade-up" class=" w-75 mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro provident corporis consequuntur et totam.</p>
+              <h1 data-aos="fade-up">Trouvez des <span class="typed-words"></span></h1>
+                <p data-aos="fade-up" class=" w-75 mx-auto">Trouvez tous vos désirs pour tous vos besoin en seulement un clic !</p>
               </div>
             </div>
 
@@ -126,7 +125,7 @@
               <form method="post">
                 <div class="row align-items-center">
                   <div class="col-lg-12 col-xl-4 no-sm-border border-right">
-                    <input type="text" class="form-control" placeholder="What are you looking for?">
+                    <input type="text" class="form-control" placeholder="Que cherchez vous?">
                   </div>
                   <div class="col-lg-12 col-xl-3 no-sm-border border-right">
                     <div class="wrap-icon">
@@ -139,11 +138,11 @@
                     <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                       <select class="form-control" name="" id="">
-                        <option value="">All Categories</option>
-                        <option value="">Hotels</option>
-                        <option value="">Restaurant</option>
-                        <option value="">Eat &amp; Drink</option>
-                        <option value="">Events</option>
+                        <option value="">Tous les categories</option>
+                        <option value="">Hôtels</option>
+                        <option value="">Restaurants</option>
+                        <option value="">Manger &amp; Boire</option>
+                        <option value="">Evenements</option>
                         <option value="">Fitness</option>
                         <option value="">Others</option>
                       </select>
@@ -160,9 +159,7 @@
           </div>
         </div>
       </div>
-    </div>  
-
-    
+    </div>
     
       
     
@@ -639,7 +636,7 @@
   <script src="js/typed.js"></script>
             <script>
             var typed = new Typed('.typed-words', {
-            strings: ["Attractions"," Events"," Hotels", " Restaurants"],
+              strings: ["Voitures"," Hôtels"," Maisons", " Salle des fêtes"],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,

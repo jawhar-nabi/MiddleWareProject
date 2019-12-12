@@ -354,7 +354,7 @@
   <script src="js/typed.js"></script>
             <script>
             var typed = new Typed('.typed-words', {
-            strings: ["Voiture"," Hôtels"," Maisons", " Salle des fêtes"],
+            strings: ["Voitures"," Hôtels"," Maisons", " Salle des fêtes"],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,
