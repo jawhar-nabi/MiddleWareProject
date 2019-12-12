@@ -51,8 +51,8 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="index.html"><span>Home</span></a></li>
-                <li class="has-children">
+                <li class="active"><a href="index.php"><span>Accueil</span></a></li>
+             <!--   <li class="has-children">
                   <a href="about.html"><span>Dropdown</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="#">Menu One</a></li>
@@ -67,11 +67,10 @@
                         <li><a href="#">Menu Four</a></li>
                       </ul>
                     </li>
-                  </ul>
+                  </ul> -->
                 </li>
-                <li><a href="listings.html"><span>Listings</span></a></li>
-                <li><a href="about.html"><span>About</span></a></li>
-                <li><a href="blog.html"><span>Blog</span></a></li>
+                <li><a href="articles"><span>Catégorie</span></a></li>
+                <li><a href="about.html"><span>A propos</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
 
 
@@ -82,10 +81,10 @@
 
                     <!--nom du compte-->
                     @else
-                      <li>  <a href="{{ route('login') }}"><span>Login</span></a></li>
+                      <li>  <a href="{{ route('login') }}"><span>Se connecter</span></a></li>
 
                         @if (Route::has('register'))
-                         <li>   <a href="{{ route('register') }}"><span>Register</span></a></li>
+                         <li>   <a href="{{ route('register') }}"><span>S'inscrire</span></a></li>
                         @endif
                     @endauth
             @endif
