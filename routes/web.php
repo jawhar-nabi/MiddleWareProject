@@ -24,6 +24,10 @@ Route::get('/articles', function () {
     return view('articles');
 });
 
+Route::get('/ajout', function () {
+    return view('ajoutArticle');
+});
+
 
 
 Auth::routes();

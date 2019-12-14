@@ -70,7 +70,7 @@
                   </ul> -->
                 </li>
                 <li><a href="articles"><span>Catégorie</span></a></li>
-                <li><a href="about.html"><span>A propos</span></a></li>
+                <li><a href="ajout"><span>Louer</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
 
 
