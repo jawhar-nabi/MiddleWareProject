@@ -72,6 +72,7 @@
                 <li><a href="articles"><span>Catégorie</span></a></li>
                 <li><a href="ajout"><span>Louer</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
+                <li><a href="parametres"><span>Paramétres</span></a></li>
 
 
             
