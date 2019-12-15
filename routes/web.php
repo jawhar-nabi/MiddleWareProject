@@ -28,12 +28,21 @@ Route::get('/ajout', function () {
     return view('ajoutArticle');
 });
 
-Route::post('/ajout', function () {
-    $article = new App\Article;
-    $article->nom = request('nom');
-    
-    return view('ajoutArticle');
+Route::get('/parametres', function () {
+    return view('parametres');
 });
+
+
+Route::post('/ajout', function () {
+    return 'Votre nom  est ' . $_POST['nom'];
+});
+
+// Route::post('/ajout', function () {
+//     $article = new App\Article;
+//     $article->nom = request('nom');
+    
+//     return view('ajoutArticle');
+// });
 
 
 Auth::routes();

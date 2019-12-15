@@ -55,7 +55,7 @@
             </div>
         @endif
         <!-- enctype="multipart/form-data" -->
-                    <form method="POST" action="{{ route('image.upload.post') }}" >
+                    <form method="POST" action="ajout" >
                         @csrf
 
                         <div class="form-group row">
