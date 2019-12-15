@@ -23,7 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $categories=DB::table('categories')
+        ->get();
+
+
+        return view ('welcome')->with('a',$categories);
+
     }
     public function insertarticle(request $request){
         $data=array();

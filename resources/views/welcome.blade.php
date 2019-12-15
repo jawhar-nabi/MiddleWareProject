@@ -63,114 +63,38 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Most Visited Places</h2>
-            <p class="color-black-opacity-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h2 class="font-weight-light text-primary">Trouvez ce que vous cherchez pour une durée que vous choisissez !</h2>
+            <p class="color-black-opacity-5">Beaucoup de choix, movibilité, agilité et pour la durée qui vous necessite.</p>
           </div>
         </div>
 
         <div class="row">
+        @foreach($a as $v_cat)
+
           <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            
             <div class="listing-item">
               <div class="listing-image">
                 <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">Hotels</a>
+                <a class="px-3 mb-3 category" href="#">{{$v_cat->nom}}</a>
                 <h2 class="mb-1"><a href="listings-single.html">Luxe Hotel</a></h2>
                 <span class="address">West Orange, New York</span>
               </div>
             </div>
-
           </div>
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">Restaurants</a>
-                <h2 class="mb-1"><a href="listings-single.html">Jones Grill &amp; Restaurants</a></h2>
-                <span class="address">Brooklyn, New York</span>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_3.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">Events</a>
-                <h2 class="mb-1"><a href="listings-single.html">Live Band</a></h2>
-                <span class="address">West Orange, New York</span>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">Others</a>
-                <h2 class="mb-1"><a href="listings-single.html">Gourmet Coffees</a></h2>
-                <span class="address">New York City</span>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_5.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">Spa</a>
-                <h2 class="mb-1"><a href="listings-single.html">La Italia Spa</a></h2>
-                <span class="address">Italy</span>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_6.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">Stores</a>
-                <h2 class="mb-1"><a href="listings-single.html">Super Market Mall</a></h2>
-                <span class="address">West Orange, New York</span>
-              </div>
-            </div>
-
-          </div>
+          @endforeach
         </div>
-      </div>
-    </div>
+      
 
     
     <div class="site-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Popular Categories</h2>
-            <p class="color-black-opacity-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h2 class="font-weight-light text-primary">Les offres du moment</h2>
+            <p class="color-black-opacity-5">Trouvez les derniers offres de location pour tous les types et les catégories.</p>
           </div>
         </div>
 
@@ -178,35 +102,35 @@
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="#" class="popular-category h-100">
               <span class="icon mb-3"><span class="flaticon-hotel"></span></span>
-              <span class="caption mb-2 d-block">Hotels</span>
-              <span class="number">4,89</span>
+              <span class="caption mb-2 d-block">Hôtels</span>
+              <span class="number">+100</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="#" class="popular-category h-100">
               <span class="icon mb-3"><span class="flaticon-microphone"></span></span>
-              <span class="caption mb-2 d-block">Events</span>
-              <span class="number">482</span>
+              <span class="caption mb-2 d-block">Evenements</span>
+              <span class="number">+140</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="#" class="popular-category h-100">
               <span class="icon mb-3"><span class="flaticon-flower"></span></span>
-              <span class="caption mb-2 d-block">Spa</span>
-              <span class="number">194</span>
+              <span class="caption mb-2 d-block">Salle de fêtes</span>
+              <span class="number">+55</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="#" class="popular-category h-100">
               <span class="icon mb-3"><span class="flaticon-restaurant"></span></span>
-              <span class="caption mb-2 d-block">Stores</span>
-              <span class="number">1,472</span>
+              <span class="caption mb-2 d-block">Immobilier</span>
+              <span class="number">+3000</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="#" class="popular-category h-100">
               <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
-              <span class="caption mb-2 d-block">Restaurants</span>
+              <span class="caption mb-2 d-block">Voitures</span>
               <span class="number">439</span>
             </a>
           </div>
@@ -214,13 +138,13 @@
             <a href="#" class="popular-category h-100">
               <span class="icon mb-3"><span class="flaticon-bike"></span></span>
               <span class="caption mb-2 d-block">Other</span>
-              <span class="number">692</span>
+              <span class="number">6920</span>
             </a>
           </div>
         </div>
 
         <div class="row mt-5 justify-content-center tex-center">
-          <div class="col-md-4"><a href="#" class="btn btn-block btn-outline-primary btn-md px-5">View All Categories</a></div>
+          <div class="col-md-4"><a href="#" class="btn btn-block btn-outline-primary btn-md px-5">Voir toutes les categories</a></div>
         </div>
       </div>
     </div>
@@ -233,45 +157,45 @@
             <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded">
           </div>
           <div class="col-md-5 ml-auto">
-            <h2 class="text-primary mb-3">Why Us</h2>
+            <h2 class="text-primary mb-3">Pourquoi nous ?</h2>
             <div class="row mt-4">
               <div class="col-12">
                 <div class="border p-3 rounded mb-2">
-                  <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">How to list my item?</a>
+                  <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">Comment louer votre bien ?</a>
 
                   <div class="collapse" id="collapse-1">
                     <div class="pt-2">
-                      <p class="mb-0">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                      <p class="mb-0">Grâçe à un réseau sécurisé et fiable, KIRA vous permet de louer votre bien pour de courtes ou de longues durées, vous rapproche du loccateur et vous accompagne pour profiter de vos elements abondonnés.</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="border p-3 rounded mb-2">
-                  <a data-toggle="collapse" href="#collapse-4" role="button" aria-expanded="false" aria-controls="collapse-4" class="accordion-item h5 d-block mb-0">Is this available in my country?</a>
+                  <a data-toggle="collapse" href="#collapse-4" role="button" aria-expanded="false" aria-controls="collapse-4" class="accordion-item h5 d-block mb-0">Ou se trouve KIRA?</a>
 
                   <div class="collapse" id="collapse-4">
                     <div class="pt-2">
-                      <p class="mb-0">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                      <p class="mb-0">KIRA est basé à sousse mais grace à ses confidentiels, qui s'occupe de tester la conformité et la réalité des offres, se distribuent sur toute la tunisie pour couvrir tout le territoire du pays.</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="border p-3 rounded mb-2">
-                  <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapse-2" class="accordion-item h5 d-block mb-0">Is it free?</a>
+                  <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapse-2" class="accordion-item h5 d-block mb-0">Est ce que c'est gratuit?</a>
 
                   <div class="collapse" id="collapse-2">
                     <div class="pt-2">
-                      <p class="mb-0">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                      <p class="mb-0">KIRA vous aider à louer en toute gratuité avec l'assurance de la conformité du produit et du bon fonctionnement toutes la durée du locataire.</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="border p-3 rounded mb-2">
-                  <a data-toggle="collapse" href="#collapse-3" role="button" aria-expanded="false" aria-controls="collapse-3" class="accordion-item h5 d-block mb-0">How the system works?</a>
+                  <a data-toggle="collapse" href="#collapse-3" role="button" aria-expanded="false" aria-controls="collapse-3" class="accordion-item h5 d-block mb-0">Comment ça fonctionne?</a>
 
                   <div class="collapse" id="collapse-3">
                     <div class="pt-2">
-                      <p class="mb-0">The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didnâ€™t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                      <p class="mb-0">Des particuliers et des professionnels peuvent ajouter des élèments à louer et KIRA s'occupe de la verification du produit avant de confirmer la publication, donc vous trouvez les meilleurs offres des locations avec une conformité de plus. </p>
                     </div>
                   </div>
                 </div>
@@ -287,8 +211,8 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">How It Works</h2>
-            <p class="color-black-opacity-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            <h2 class="font-weight-light text-primary">Comment ça fonctionne ?</h2>
+            <p class="color-black-opacity-5">Des particuliers et des professionnels peuvent ajouter des élèments à louer et KIRA s'occupe de la verification du produit avant de confirmer la publication, donc vous trouvez les meilleurs offres des locations avec une conformité de plus. </p>
           </div>
         </div>
 
@@ -299,8 +223,8 @@
                 <img src="images/step-1.svg" alt="Free website template by Free-Template.co" class="img-fluid">
               </div>
               <span class="number">1</span>
-              <h3>Decide What To Do</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h3>Cherchez ce que vous desirez</h3>
+              <p>Trouvez le produit qui vous convient.</p>
             </div>
           </div>
           <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
@@ -309,8 +233,8 @@
                 <img src="images/step-2.svg" alt="Free website template by Free-Template.co" class="img-fluid">
               </div>
               <span class="number">2</span>
-              <h3>Find What You Want</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h3>Contacter le locataire</h3>
+              <p>KIRA vous propose un cahier de charge à recommander pour les nogaciations des locations pour etre mefiant.</p>
             </div>
           </div>
           <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
@@ -319,8 +243,8 @@
                 <img src="images/step-3.svg" alt="Free website template by Free-Template.co" class="img-fluid">
               </div>
               <span class="number">3</span>
-              <h3>Explore Amazing Places</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <h3>Amuses toi avec ce que tu arrives de louer</h3>
+              <p>Maintenant, tu peux utiliser votre biens comme vous voulez et n'oublier pas de contacter le locataire en cas de prolongation du durée.</p>
             </div>
           </div>
         </div>
@@ -332,7 +256,7 @@
 
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Satisfied Customers</h2>
+            <h2 class="font-weight-light text-primary">Clientéle satisfaite</h2>
           </div>
         </div>
 
@@ -341,10 +265,10 @@
             <div class="testimonial">
               <figure class="mb-4">
                 <img src="images/person_3_sq.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
-                <p>Willie Smith</p>
+                <p>Abed laaziz ben fateh</p>
               </figure>
               <blockquote>
-                <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+                <p>&ldquo;Service tellement recommandé.&rdquo;</p>
               </blockquote>
             </div>
           </div>
@@ -352,10 +276,10 @@
             <div class="testimonial">
               <figure class="mb-4">
                 <img src="images/person_2_sq.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
-                <p>Robert Jones</p>
+                <p>Sihem baji</p>
               </figure>
               <blockquote>
-                <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
+                <p>&ldquo;J'ai louer un superbe appartement grâçe à KIRA, je vis dedans depuis 5 ans déjà !&rdquo;</p>
               </blockquote>
             </div>
           </div>
@@ -364,10 +288,10 @@
             <div class="testimonial">
               <figure class="mb-4">
                 <img src="images/person_4_sq.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
-                <p>Peter Richmond</p>
+                <p>Majid houas</p>
               </figure>
               <blockquote>
-                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                <p>&ldquo;KIRA est la meilleure !&rdquo;</p>
               </blockquote>
             </div>
           </div>
@@ -376,10 +300,10 @@
             <div class="testimonial">
               <figure class="mb-4">
                 <img src="images/person_5_sq.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
-                <p>Bruce Rogers</p>
+                <p>Sofien sfaxi</p>
               </figure>
               <blockquote>
-                <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didnâ€™t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.&rdquo;</p>
+                <p>&ldquo;Que de bonnes affaires !&rdquo;</p>
               </blockquote>
             </div>
           </div>
@@ -390,7 +314,7 @@
 
 
 
-    <div class="site-section">
+    <!-- <div class="site-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
@@ -431,18 +355,18 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     
     <div class="py-5 bg-primary">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
-            <h2 class="mb-3 mt-0 text-white">Let's get started. Create your account</h2>
-            <p class="mb-0 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h2 class="mb-3 mt-0 text-white">N'hesites pas de créer votre compte maintenant !</h2>
+            <p class="mb-0 text-white">Vite créer votre compte et trouver plus facilement les dernieres offres dans KIRA </p>
           </div>
           <div class="col-lg-4">
-            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
+            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">S'inscrire</a></p>
           </div>
         </div>
       </div>
