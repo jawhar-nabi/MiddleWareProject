@@ -33,9 +33,9 @@ Route::get('/parametres', function () {
 });
 
 
-Route::post('/ajout', function () {
-    return 'Votre nom  est ' . $_POST['nom'];
-});
+Route::post('/ajout','HomeController@insertarticle',function () {
+    return view('ajoutArticle');}
+);
 
 // Route::post('/ajout', function () {
 //     $article = new App\Article;

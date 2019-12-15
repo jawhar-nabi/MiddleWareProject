@@ -9,13 +9,8 @@
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
-            
-            
             <div class="row justify-content-center">
-             
             </div>
-
-            
           </div>
         </div>
       </div>
@@ -26,9 +21,6 @@
         <div >
           
           <div class="col-md-6 mb-8" style="margin-left: 25%;">
-
-            
-
             <div class="container " style="margin-top: -40%;  ">
             <div class="row justify-content-center">
         <div class="col-md-8">
@@ -41,7 +33,7 @@
             <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
         </div>
-        <img src="images/{{ Session::get('image') }}">
+        <!-- <img src="images/{{ Session::get('image') }}"> -->
         @endif
   
         @if (count($errors) > 0)
@@ -55,7 +47,7 @@
             </div>
         @endif
         <!-- enctype="multipart/form-data" -->
-                    <form method="POST" action="ajout" >
+                    <form method="POST" action="{{ url('ajout') }}" >
                         @csrf
 
                         <div class="form-group row">
@@ -118,7 +110,7 @@
         </div>
     </div>
 </div>
-  
+
             </form>
           </div>
         </div>

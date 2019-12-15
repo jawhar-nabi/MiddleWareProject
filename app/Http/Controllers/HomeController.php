@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +24,23 @@ class HomeController extends Controller
     public function index()
     {
         return view('welcome');
+    }
+    public function insertarticle(request $request){
+        $data=array();
+        $data['nom']=$request->nom;
+        $data['prix']=$request->prix;
+        $data['description']="";
+        $data['emplacement']=$request->emplacement;
+        $data['type']=$request->categorie;
+        $data['user_id']="1";
+        $data['images_id']="1";
+        $data['partager']=false;
+
+        $state= DB::table('articles')->insert($data);
+        if($state){
+        return back()
+        ->with('success','You have successfully added an item.');
+
+        }
     }
 }
