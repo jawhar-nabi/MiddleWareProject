@@ -11,6 +11,7 @@
         
         <table class="table table-hover table-dark">
   <thead>
+
     <tr>
       <th scope="col">Categorie</th>
       <th scope="col">nom</th>
@@ -23,26 +24,36 @@
       <th scope="col">Images</th>
       <th scope="col">Actions</th>
     </tr>
+   
   </thead>
   <tbody>
+  @foreach($allArticles as $v_article)
+   
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@twitter</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>
-        <button type="button" class="btn btn-success">Success</button>
+      <th scope="col">{{$v_article->categorie_id}}</th>
+      <th scope="col">{{$v_article->nom}}</th>
+      <th scope="col">{{$v_article->prix}}</th>
+      <th scope="col">{{$v_article->description}}</th>
+      <th scope="col">{{$v_article->emplacement}}</th>
+      <th scope="col">{{$v_article->type}}</th>
+      @if($v_article->partager==1)
+        <th scope="col">Oui</th>
+      @else
+      <th scope="col">Non</th>
+      @endif
+     
 
-        <button type="button" class="btn btn-danger">Danger</button>
+      <th scope="col">{{$v_article->user_id}}</th>
+      <th scope="col">{{$v_article->images_id}}</th>
+      <td>
+        <button type="button" class="btn btn-success">Accepter</button>
+
+        <button type="button" class="btn btn-danger">Supprimer</button>
 
 
       </td>
     </tr>
+    @endforeach
   </tbody>
 </table>
 

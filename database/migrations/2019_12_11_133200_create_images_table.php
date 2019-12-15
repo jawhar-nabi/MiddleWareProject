@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('url');
             $table->bigInteger('articles_id');
 
-            $table->foreign('articles_id')->references('id')->on('articles');
+           // $table->foreign('articles_id')->references('id')->on('articles');
 
             $table->timestamps();
         });

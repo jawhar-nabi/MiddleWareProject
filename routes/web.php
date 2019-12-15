@@ -28,9 +28,8 @@ Route::get('/ajout', function () {
     return view('ajoutArticle');
 });
 
-Route::get('/parametres', function () {
-    return view('parametres');
-});
+Route::get('/parametresArticles', 'parametresController@getAllArticles');
+
 
 
 Route::post('/ajout','HomeController@insertarticle',function () {
