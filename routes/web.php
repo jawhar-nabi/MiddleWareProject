@@ -28,6 +28,12 @@ Route::get('/ajout', function () {
     return view('ajoutArticle');
 });
 
+Route::post('/ajout', function () {
+    $article = new App\Article;
+    $article->nom = request('nom');
+    
+    return view('ajoutArticle');
+});
 
 
 Auth::routes();
@@ -45,3 +51,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
