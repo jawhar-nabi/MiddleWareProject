@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->float('prix');
             $table->string('description');
             $table->string('emplacement');
-            $table->string('type');
+            //$table->string('type');
             $table->bigInteger('users_id');
             $table->bigInteger('images_id');
             $table->boolean('partager');

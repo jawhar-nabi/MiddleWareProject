@@ -25,12 +25,19 @@ Route::get('/ajout','HomeController@getAllcategories');
 Route::get('/parametresArticles', 'parametresController@getAllArticles');
 
 
+Route::get('/parametresArticles', 'parametresController@ajouterCategories');
+
 
 Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}
 );
 
 Route::get('DeleteArticle/{id}','parametresController@deleteArticle');
+
+Route::get('AccepterArticle/{id}','parametresController@accepterArticle');
+
+Route::get('IgnorerArticle/{id}','parametresController@ignorerArticle');
+
 
 // Route::post('/ajout', function () {
 //     $article = new App\Article;

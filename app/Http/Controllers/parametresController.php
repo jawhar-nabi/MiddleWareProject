@@ -18,8 +18,14 @@ class parametresController extends Controller
                 $listArticles("cat"->$categ,"art"->$articles);
                             
             }*/
-        $articles=DB::table('articles')
-                    ->get();
+            $articles=DB::table('articles')
+            ->join('categories','categories.id','=','articles.categories_id')
+            ->join('users','users.id','=','articles.users_id')
+                
+                ->select('categories.nom as nomc','users.nom as nomU','users.prenom as prenomU','articles.*')->get();
+
+        /*$articles=DB::table('articles')
+                    ->get();*/
 
             
         return view ('parametresArticles')->with('allArticles',$articles);
@@ -29,15 +35,45 @@ class parametresController extends Controller
         $dlt=DB::table('articles')->where('id',$id)->delete();
         if($dlt){
 
-           /* return back()
-            ->with('success','Article Supprimer avec success!');*/
-            $notif=array(
-                'message'=>'Article Supprimer avec success!',
-                'alert-type'=>'success'
-            );
-            return Redirect()->back()->with($notif);
+            return back()
+            ->with('success','Article Supprimer avec success!');
+           
         }else{
-            echo "erreur";
+            return back()
+            ->with('error','Erreur');
         }
+    }
+    public function accepterArticle($id){
+
+        
+      
+        $result=DB::table('articles')->where('id', $id)->update(array('partager'=>true));
+        if($result){
+
+             return back()
+             ->with('success','Article Accepter avec success!');
+            
+         }else{
+            return back()
+            ->with('error','Article déja Accepter!');
+         }
+        
+
+    }
+
+    public function ignorerArticle($id){
+
+
+        $result=DB::table('articles')->where('id', $id)->update(array('partager'=>false));
+        if($result){
+
+            return back()
+             ->with('success','Article Ignorer avec success!');
+             
+         }else{
+            return back()
+            ->with('error','Article déja Ignorer!');
+         }
+
     }
 }

@@ -25,10 +25,28 @@
       </div>
 
 
-      <h2>Tous les Articles</h2>
+      
       
         <div class="container">
-        
+
+        <!-- <div class="col-md-6 mb-8" style="margin-left: 25%;">
+            <div class="container " style="margin-top: -40%;  ">
+            <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Ajouter Categorie') }}</div>
+
+                <div class="card-body">
+                @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        <!- <img src="images/{{ Session::get('image') }}"> -->
+        @endif
+        </div></div></div></div></div></div> -->
+
+       
         
         <table class="table table-hover table-dark">
   <thead>
