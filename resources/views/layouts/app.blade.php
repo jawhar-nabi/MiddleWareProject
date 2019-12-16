@@ -49,9 +49,11 @@
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
+            <div id="myDIV">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="/"><span>Accueil</span></a></li>
+
+                <li class=" btn active"><a href="/"><span>Accueil</span></a></li>
              <!--   <li class="has-children">
                   <a href="about.html"><span>Dropdown</span></a>
                   <ul class="dropdown arrow-top">
@@ -69,28 +71,24 @@
                     </li>
                   </ul> -->
                 </li>
-                <li><a href="articles"><span>Catégorie</span></a></li>
-                <li><a href="ajout"><span>Louer</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
-                <li class="has-children">
+                <li class=" btn"><a href="articles"><span>Catégorie</span></a></li>
+                <li class=" btn"><a href="ajout"><span>Louer</span></a></li>
+                <li class=" btn"><a href="contact.html"><span>Contact</span></a></li>
+                <li class="has-children btn">
                   <a ><span>Paramétres</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="parametresArticles">Tous les articles</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                    
+                    <li><a href="#">Ajouter catégorie</a></li>
+                    <li><a href="#">Designer admin </a></li>
                   </ul>
                 </li>
                 
-
-            
-
             @guest
-                            <li class="nav-item">
+                            <li class="btn nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"><span>Se connecter</span></a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="btn nav-item">
                                     <a class="nav-link" href="{{ route('register') }}"><span>S'inscrire</span></a>
                                 </li>
                             @endif
@@ -99,7 +97,7 @@
 
 
 
-                            <li class="nav-item dropdown">
+                            <li class="btn nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
                                 </a>
@@ -122,6 +120,7 @@
 
 
               </ul>
+              </div>
             </nav>
           </div>
 
@@ -232,7 +231,21 @@
             </script>
 
   <script src="js/main.js"></script>
-  
+  <!-- <script>// Get the container element
+var btnContainer = document.getElementById("myDIV");
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script> -->
   </body>
 
 </html>

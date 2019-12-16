@@ -64,10 +64,10 @@
                     <div class="col-md-8 ">
                     <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                      <select class="form-control" name="" id="">
-                      <option value="">Tous les categories</option>
+                      <select class="form-control" name="categorie" >
+                      <option value="tous">Tous les categories</option>
                       @foreach($b as $val_categorie)
-                        <option value={{$val_categorie->nom}}>{{$val_categorie->nom}}</option>
+                        <option value={{$val_categorie->id}}>{{$val_categorie->nom}}</option>
                         @endforeach                 
                           </select>
                     </div>

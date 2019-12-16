@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -25,6 +26,7 @@ class HomeController extends Controller
     {   
         $categories=DB::table('categories')
         ->orderBy('nom', 'asc')
+        ->limit(2)
         ->get();
 
 
@@ -46,9 +48,9 @@ class HomeController extends Controller
             DB::table('categories')->insert($data);
             $categories=DB::table('categories')
             ->orderBy('nom', 'asc')
+            ->limit(2)
             ->get();
         }
-
         return view ('welcome')->with('a',$categories);
     }
 
@@ -61,12 +63,13 @@ class HomeController extends Controller
 
     }
     public function insertarticle(request $request){
+       // dd($request->input('categorie'));
         $data=array();
         $data['nom']=$request->nom;
         $data['prix']=$request->prix;
         $data['description']="";
         $data['emplacement']=$request->emplacement;
-        $data['type']=$request->categorie;
+        $data['categories_id']=$request->input('categorie');
         $data['users_id']="1";
         $data['images_id']="1";
         $data['partager']=false;
