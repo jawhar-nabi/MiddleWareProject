@@ -30,7 +30,7 @@
   @foreach($allArticles as $v_article)
    
     <tr>
-      <th scope="col">{{$v_article->categorie_id}}</th>
+      <th scope="col">{{$v_article->categories_id}}</th>
       <th scope="col">{{$v_article->nom}}</th>
       <th scope="col">{{$v_article->prix}}</th>
       <th scope="col">{{$v_article->description}}</th>
@@ -43,13 +43,14 @@
       @endif
      
 
-      <th scope="col">{{$v_article->user_id}}</th>
+      <th scope="col">{{$v_article->users_id}}</th>
       <th scope="col">{{$v_article->images_id}}</th>
       <td>
         <button type="button" class="btn btn-success">Accepter</button>
-
-        <button type="button" class="btn btn-danger">Supprimer</button>
-
+        <button type="button" class="btn btn-warning">Ignorer</button>
+        
+        <!--button type="button" class="btn btn-danger"  onclick=`location.href="{{ url('DeleteArticle/'.$v_article->id) }}"`>Supprimer</button-->
+        <a href="{{ URL::to('DeleteArticle/'.$v_article->id) }}">delete</a>
 
       </td>
     </tr>

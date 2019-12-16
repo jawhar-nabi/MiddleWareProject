@@ -32,6 +32,8 @@ Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}
 );
 
+Route::get('DeleteArticle/{id}','parametresController@deleteArticle');
+
 // Route::post('/ajout', function () {
 //     $article = new App\Article;
 //     $article->nom = request('nom');

@@ -20,10 +20,10 @@ class CreateArticlesTable extends Migration
             $table->string('description');
             $table->string('emplacement');
             $table->string('type');
-            $table->bigInteger('user_id');
+            $table->bigInteger('users_id');
             $table->bigInteger('images_id');
             $table->boolean('partager');
-            $table->bigInteger('categorie_id');
+            $table->bigInteger('categories_id');
             //$table->foreign('user_id')->references('id')->on('users');
             //$table->foreign('images_id')->references('id')->on('images');
             //$table->foreign('categorie_id')->references('id')->on('categories');
