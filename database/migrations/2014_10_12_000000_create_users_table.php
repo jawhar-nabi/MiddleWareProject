@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            /*$table->bigInteger('articles_id');
+            $table->boolean('admin');
 
-            $table->foreign('articles_id')->references('id')->on('articles');*/
+            // $table->foreign('articles_id')->references('id')->on('articles');
             $table->rememberToken();
             $table->timestamps();
         });

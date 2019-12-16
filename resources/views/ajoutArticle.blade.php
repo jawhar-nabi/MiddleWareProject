@@ -59,12 +59,26 @@
                         </div>
 
                         <div class="form-group row">
+                        <label for="nom" class="col-md-6 col-form-label ">{{ __('Categorie') }}</label>
 
-                        <label for="categorie" class="col-md-6 col-form-label ">{{ __('Categorie') }}</label>
+                    <div class="col-md-8 ">
+                    <div class="select-wrap">
+                      <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
+                      <select class="form-control" name="" id="">
+                      <option value="">Tous les categories</option>
+                      @foreach($b as $val_categorie)
+                        <option value={{$val_categorie->nom}}>{{$val_categorie->nom}}</option>
+                        @endforeach                 
+                          </select>
+                    </div>
+                  </div>
+                  
+                        <!-- <label for="categorie" class="col-md-6 col-form-label ">{{ __('Categorie') }}</label>
                             <div class="col-md-12">
                                 <input id="categorie" type="text"  name="categorie" value="{{ old('prenom') }}" required autocomplete="Categorie" autofocus>
-                            </div>
-                        </div>
+                            </div>-->
+                            </div> 
+
 
                         <div class="form-group row">
                             <label for="prix" class="col-md-12 col-form-label ">{{ __('Prix') }}</label>

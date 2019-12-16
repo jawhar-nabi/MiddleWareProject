@@ -20,9 +20,7 @@ Route::get('/articles', function () {
     return view('articles');
 });
 
-Route::get('/ajout', function () {
-    return view('ajoutArticle');
-});
+Route::get('/ajout','HomeController@getAllcategories');
 
 Route::get('/parametresArticles', 'parametresController@getAllArticles');
 

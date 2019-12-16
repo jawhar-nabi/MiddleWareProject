@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      //  $this->middleware('auth');
     }
 
     /**
@@ -22,12 +22,42 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+    {   
         $categories=DB::table('categories')
+        ->orderBy('nom', 'asc')
         ->get();
 
 
+        if(Count($categories) == 0){
+            $data=array();
+            $data['nom']='Hôtels';
+            DB::table('categories')->insert($data);
+            $data['nom']='Immeubles';
+
+            DB::table('categories')->insert($data);
+            $data['nom']='Voitures';
+
+            DB::table('categories')->insert($data);
+            $data['nom']='Salles des fêtes/congrès';
+
+            DB::table('categories')->insert($data);
+            $data['nom']='Camping';
+
+            DB::table('categories')->insert($data);
+            $categories=DB::table('categories')
+            ->orderBy('nom', 'asc')
+            ->get();
+        }
+
         return view ('welcome')->with('a',$categories);
+    }
+
+    public function getAllcategories()
+    {   
+        $categories=DB::table('categories')
+        ->orderBy('nom', 'asc')
+        ->get();
+        return view('ajoutArticle')->with('b',$categories);
 
     }
     public function insertarticle(request $request){
