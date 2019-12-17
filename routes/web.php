@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/','HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/','HomeController@index')->defaults('slug', '6');
+Route::get('/home', 'HomeController@index')->defaults('slug', '6');
+
+Route::get('/articles', 'HomeController@index')->defaults('slug', '2');
 
 
-
-Route::get('/articles', function () {
-    return view('articles');
-});
 
 Route::get('/ajout','HomeController@getAllcategories');
 
@@ -26,9 +24,10 @@ Route::get('/parametresArticles', 'parametresController@getAllArticles');
 
 Route::get('/parametresCategories', 'parametresController@getAllCategories');
 
-Route::post('/ajouterCategories', 'parametresController@ajouterCategories');
-
-Route::get('/DesignerAdmin', 'parametresController@designerAdmin');
+Route::post('/ajouterCategories', 'parametresController@ajouterCategories');/*,function () {
+    return view('parametresCategories');}
+);
+*/
 
 Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}
@@ -51,18 +50,18 @@ Route::get('IgnorerArticle/{id}','parametresController@ignorerArticle');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
