@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-      //  $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -22,11 +22,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($slug)
     {   
         $categories=DB::table('categories')
         ->orderBy('nom', 'asc')
-        ->limit(2)
+        ->limit($slug)
         ->get();
 
 
@@ -48,10 +48,15 @@ class HomeController extends Controller
             DB::table('categories')->insert($data);
             $categories=DB::table('categories')
             ->orderBy('nom', 'asc')
-            ->limit(2)
+            ->limit($pm)
             ->get();
         }
+        if($slug == 6){
         return view ('welcome')->with('a',$categories);
+        }else{
+            return view ('articles')->with('a',$categories);
+
+        }
     }
 
     public function getAllcategories()
