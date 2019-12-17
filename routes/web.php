@@ -24,9 +24,12 @@ Route::get('/ajout','HomeController@getAllcategories');
 
 Route::get('/parametresArticles', 'parametresController@getAllArticles');
 
+Route::get('/parametresCategories', 'parametresController@getAllCategories');
 
-Route::get('/parametresArticles', 'parametresController@ajouterCategories');
-
+Route::post('/ajouterCategories', 'parametresController@ajouterCategories');/*,function () {
+    return view('parametresCategories');}
+);
+*/
 
 Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}

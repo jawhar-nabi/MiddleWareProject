@@ -76,4 +76,28 @@ class parametresController extends Controller
          }
 
     }
+    public function ajouterCategories(request $request){
+
+            
+            $data=array();
+            $data['nom']=$request->nom;
+            $state= DB::table('categories')->insert($data);
+            if($state){
+            return back()
+            ->with('success','Categorie ajouté avec success.');
+
+            }else{
+                return back()
+                ->with('error','AErreur');
+            }
+        
+       
+    }
+    public function getAllCategories(){
+        $categories=DB::table('categories')
+        ->get();
+       
+        return view('parametresCategories')->with('allCategories',$categories);
+      
+    }
 }

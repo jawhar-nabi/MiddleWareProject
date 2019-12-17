@@ -73,12 +73,12 @@
                 </li>
                 <li class=" btn"><a href="articles"><span>Catégorie</span></a></li>
                 <li class=" btn"><a href="ajout"><span>Louer</span></a></li>
-                <li class=" btn"><a href="contact.html"><span>Contact</span></a></li>
+                <!-- <li class=" btn"><a href="contact.html"><span>Contact</span></a></li> -->
                 <li class="has-children btn">
                   <a ><span>Paramétres</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="parametresArticles">Tous les articles</a></li>
-                    <li><a href="#">Ajouter catégorie</a></li>
+                    <li><a href="parametresCategories">Ajouter catégorie</a></li>
                     <li><a href="#">Designer admin </a></li>
                   </ul>
                 </li>

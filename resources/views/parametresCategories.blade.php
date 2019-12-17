@@ -1,12 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-  <div style="background-color:grey;">
+  <div style="background-color:#878686;">
     <br><br><br><br><br><br>
 
     <div class="container">
       
-    <div class="card-body">
+    <h2>Ajouter Categories</h2>
+    <form method="post" action="{{ url('ajouterCategories') }}" >
+    @csrf
+<div class="row" style="margin-top: 1%;">
+
+    <div class="col-sm-3 " style="margin-left: 18%;">
+									<div class="input-group input-group-sm " >
+										<span class=" text-white btn-warning" id="basic-addon1" style="width: 20%;text-align:center;">Nom
+										</span> <input id="nom" type="text" name="nom" placeholder="Nom Categorie" style="height: 30px;width: 20px;"
+										class="form-control" 
+										required  />
+									</div>
+								</div>
+								
+                <div class="col-sm-3">
+								<div class="col-lg-12 col-xl-2 ml-auto text-right">
+                    <input type="submit" class="btn text-white btn-primary" value="Ajouter">
+                  </div>
+        </div>
+        
+  
+  </div>
+  </form>
+  
+  <div class="container-fluid" style="margin-top: 6%; width: 60%">
+  <div class="card-body">
                 @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -23,87 +48,44 @@
         @endif
 
       </div>
-
-
-      
-      
-        <div class="container">
-
-        <!-- <div class="col-md-6 mb-8" style="margin-left: 25%;">
-            <div class="container " style="margin-top: -40%;  ">
-            <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Ajouter Categorie') }}</div>
-
-                <div class="card-body">
-                @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }}</strong>
-        </div>
-        <!- <img src="images/{{ Session::get('image') }}"> -->
-        @endif
-        </div></div></div></div></div></div> -->
-
-       
-        
-        <table class="table table-hover table-dark">
+  <h2 style="text-align:center">Listes Catégories</h2>
+  <div class="container">
+  <table class="table table-hover table-dark">
   <thead>
 
-    <tr>
-      <th scope="col">Categorie</th>
+    <tr style="text-align:center">
+      <th scope="col">#</th>
       <th scope="col">nom</th>
-      <th scope="col">prix</th>
-      <th scope="col">description</th>
-      <th scope="col">Emplacement</th>
       
-      <th scope="col">Partager</th>
-      <th scope="col">User</th>
-      <th scope="col">Images</th>
-      <th scope="col">Actions</th>
     </tr>
    
   </thead>
   <tbody>
-  @foreach($allArticles as $v_article)
-   
-    <tr>
-      <th scope="col">{{$v_article->nomc}}</th>
-      <th scope="col">{{$v_article->nom}}</th>
-      <th scope="col">{{$v_article->prix}}</th>
-      <th scope="col">{{$v_article->description}}</th>
-      <th scope="col">{{$v_article->emplacement}}</th>
+  @foreach($allCategories as $key =>$v_categorie)
+  <tr style="text-align:center">
+      <th scope="col">{{$key+1}}</th>
+      <th scope="col">{{$v_categorie->nom}}</th>
       
-      @if($v_article->partager==1)
-        <th scope="col">Oui</th>
-      @else
-      <th scope="col">Non</th>
-      @endif
-     
-
-      <th scope="col">{{$v_article->nomU}} {{$v_article->prenomU}}</th>
-      <th scope="col">{{$v_article->images_id}}</th>
-      <td>
-        <!--button type="button" class="btn btn-success">Accepter</button>
-        <button type="button" class="btn btn-warning">Ignorer</button-->
-        <a href="{{ URL::to('AccepterArticle/'.$v_article->id) }}">Accepter</a>
-        <a href="{{ URL::to('IgnorerArticle/'.$v_article->id) }}">Ignorer</a>
-        
-        <!--button type="button" class="btn btn-danger"  onclick=`location.href="{{ url('DeleteArticle/'.$v_article->id) }}"`>Supprimer</button-->
-        <a href="{{ URL::to('DeleteArticle/'.$v_article->id) }}">Supprimer</a>
-
-      </td>
     </tr>
     @endforeach
   </tbody>
-</table>
 
+  </table>
+
+  <div  style="margin-top: 20%;">
+
+  <br>
+
+</div>
+
+  </div>
 
   
 
-  
-      </div>
+
+</div>
+
+
     </div>
   </div>
     @endsection
