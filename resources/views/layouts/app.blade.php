@@ -79,7 +79,7 @@
                   <ul class="dropdown arrow-top">
                     <li><a href="parametresArticles">Tous les articles</a></li>
                     <li><a href="parametresCategories">Ajouter catégorie</a></li>
-                    <li><a href="#">Designer admin </a></li>
+                    <li><a href="DesignerAdmin">Designer admin </a></li>
                   </ul>
                 </li>
                 

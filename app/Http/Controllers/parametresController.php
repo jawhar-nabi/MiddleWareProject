@@ -101,6 +101,90 @@ class parametresController extends Controller
       
     }
     public function designerAdmin(){
-        
+
+        $users=array();
+        $admins=DB::table('users')->where('admin', true)->get();
+        return view('designerAdmin')->with('allUsers',$users)
+                                    ->with('allAdmins',$admins);
     }
+
+    public function searchUsers(request $request){
+        
+        $data=array();
+        $data['nom']=$request->nom;
+        $data['prenom']=$request->prenom;
+
+        if( $data['nom']!=null){
+
+            if( $data['prenom']!=null){
+               
+                $users=DB::table('users')
+                    ->where('nom', $data['nom'])
+                     ->where('prenom', $data['prenom'])
+                        ->get();
+
+            }else{
+                $users=DB::table('users')
+                ->where('nom', $data['nom'])->get();
+            }
+        }else{
+            if( $data['prenom']!=null){
+               
+                $users=DB::table('users')
+                     ->where('prenom', $data['prenom'])
+                        ->get();
+
+            }else{
+                $users=DB::table('users')->get();
+            }
+        }
+
+       
+        return view('designerAdmin')->with('allUsers',$users);
+    }
+    
+
+    
+    public function deleteUser($id){
+        $dlt=DB::table('users')->where('id',$id)->delete();
+        if($dlt){
+
+            return back()
+            ->with('success','User Supprimé avec success!');
+           
+        }else{
+            return back()
+            ->with('error','Erreur');
+        }
+    }
+    public function changerRole($id){
+
+
+        
+        //$result=0;
+        $newRole=null;
+        $admin=DB::table('users')->select('admin as admin')->where('id', $id)->get();
+        //dd( $admin[0]->admin);
+        if($admin[0]->admin==1){
+            $result=DB::table('users')->where('id', $id) ->update(array('admin'=>false));
+            return back()
+            ->with('error',"User est n'est plus Admin!");
+
+        }
+        else{
+     
+            $result=DB::table('users')->where('id', $id) ->update(array('admin'=>true));
+            return back()
+            ->with('success','User est Admin');
+
+        }
+
+
+
+
+       
+
+    }
+
+
 }

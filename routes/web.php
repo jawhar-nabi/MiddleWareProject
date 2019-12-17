@@ -24,10 +24,12 @@ Route::get('/parametresArticles', 'parametresController@getAllArticles');
 
 Route::get('/parametresCategories', 'parametresController@getAllCategories');
 
-Route::post('/ajouterCategories', 'parametresController@ajouterCategories');/*,function () {
-    return view('parametresCategories');}
-);
-*/
+Route::post('/ajouterCategories', 'parametresController@ajouterCategories');
+
+Route::get('/DesignerAdmin', 'parametresController@designerAdmin');
+
+Route::post('/DesignerAdmin', 'parametresController@searchUsers');
+
 
 Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}
@@ -38,6 +40,10 @@ Route::get('DeleteArticle/{id}','parametresController@deleteArticle');
 Route::get('AccepterArticle/{id}','parametresController@accepterArticle');
 
 Route::get('IgnorerArticle/{id}','parametresController@ignorerArticle');
+
+Route::get('DeleteUser/{id}','parametresController@deleteUser');
+
+Route::get('ChangerRole/{id}','parametresController@changerRole');
 
 
 // Route::post('/ajout', function () {
@@ -60,7 +66,7 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-// Auth::routes(['verify' => true]);
+ Auth::routes(['verify' => true]);
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
