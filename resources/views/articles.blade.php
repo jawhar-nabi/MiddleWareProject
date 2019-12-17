@@ -2,17 +2,16 @@
 
 @section('content')
 
-    <div class="site-blocks-cover overlay" style="background-image: url(images/85.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay" style="background-image: url(images/2529051.jpg); opacity:0.7;" data-aos="fade" data-stellar-background-ratio="0.5">
 		
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
+
           <div class="col-md-10">
-            
-           
-    
-    <div class="site-section">
-      <div class="container">
+          <div class="site-section">
+
+      <div style="margin-top : 5% ;">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
             <h2 class="font-weight-light text-primary">Les offres du moment</h2>
@@ -70,13 +69,11 @@
         </div>
       </div>
     </div>
-    
-    
-   
-   
+    </div>
+    </div>
 
-
-            <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
+           
+            <div  style="margin-top : 5% ;"class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
               <form method="post">
                 <div class="row align-items-center">
                   <div class="col-lg-12 col-xl-4 no-sm-border border-right">
@@ -113,12 +110,11 @@
 
           </div>
         </div>
-      </div>
-    </div>
+    
     
       
     
-    <div class="site-section" data-aos="fade">
+    <div style="margin-top : 7% ;" class="site-section" data-aos="fade">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
