@@ -100,4 +100,7 @@ class parametresController extends Controller
         return view('parametresCategories')->with('allCategories',$categories);
       
     }
+    public function designerAdmin(){
+        
+    }
 }

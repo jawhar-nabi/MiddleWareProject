@@ -26,10 +26,9 @@ Route::get('/parametresArticles', 'parametresController@getAllArticles');
 
 Route::get('/parametresCategories', 'parametresController@getAllCategories');
 
-Route::post('/ajouterCategories', 'parametresController@ajouterCategories');/*,function () {
-    return view('parametresCategories');}
-);
-*/
+Route::post('/ajouterCategories', 'parametresController@ajouterCategories');
+
+Route::get('/DesignerAdmin', 'parametresController@designerAdmin');
 
 Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}
