@@ -76,13 +76,30 @@ class HomeController extends Controller
         $data['emplacement']=$request->emplacement;
         $data['categories_id']=$request->input('categorie');
         $data['users_id']="1";
-        $data['images_id']="1";
         $data['partager']=false;
+
+        // if($request->hasfile('image')){
+        //     $file = $request->file('image');
+           
+        //     $filename =  time().'.'.$request->image->extension();  
+        //     $file->move(public_path('images/articles'),$filename);
+        //     $data['image'] = $filename;
+        
+        // }else{
+        //     $data['image'] = '123';
+
+        // }
+        $imageName = time().'.'.$request->image->extension();  
+   
+        $request->image->move(public_path('images'), $imageName);
+        $data['image'] = $imageName;
 
         $state= DB::table('articles')->insert($data);
         if($state){
         return back()
-        ->with('success','You have successfully added an item.');
+        ->with('success','You have successfully added an item.')
+        ->with('image',$imageName);
+
 
         }
     }

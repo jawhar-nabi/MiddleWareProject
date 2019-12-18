@@ -99,10 +99,10 @@
                              
                             </div>
                         </div>
-                        <div class="col-md-6">
+                <div class="col-md-12">
                     <input type="file" name="image" class="form-control">
                 </div>
-
+                <br>
                         <!-- <div class="form-group row">
                             <label for="password-confirm" class="col-md-12 col-form-label ">{{ __('Confirmer Mot de Passe') }}</label>
 
