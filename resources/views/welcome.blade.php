@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <div class="site-blocks-cover overlay" style="background-image: url(images/85.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
 		
@@ -56,8 +59,61 @@
         </div>
       </div>
     </div>
-    
+
+
+<!-- Modal -->
+  <div class="container">
+    <div class="modal fade" id="show" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
       
+        <!-- Modal content-->
+        <!-- <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">article id n°23</h4>
+          </div>
+          <div class="modal-body"> -->
+<!-- ****************************************************** -->
+
+        <div class="row">
+          <div class="col-md-14 mb-14 mb-lg-14 col-lg-14" >
+            <div class="listing-item">
+              <div class="listing-image">
+                <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+              </div>
+              <div class="listing-item-content">
+                <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                <a class="px-3 mb-3 category" href="#">jhjhqkfjhq</a>
+                <h2 class="mb-1"><a href="listings-single.html">Luxe Hotel</a></h2>
+                <span class="address">West Orange, New York</span>
+
+              </div>
+            </div>
+          <h6 style="background-color : white;">Service providers are the connection points between your package and Laravel. A service provider is responsible for binding things into Laravel's service container and informing Laravel where to load package resources such as views, configuration, and localization files.
+
+A service provider extends the Illuminate\Support\ServiceProvider class and contains two methods: register and boot. The base ServiceProvider class is located in the illuminate/support Composer package, which you should add to your own package's dependencies. To learn more about the structure and purpose of service providers, check out their documentation.
+
+
+Resources
+
+Configuration
+Typically, you will need to publish your package's configuration file to the application's own config directory. This will allow users of your package to easily override your default configuration options. To allow your configuration files to be published, call the publishes method from the boot method of your service provider:</h6>
+            </div>
+            </div>
+          
+       
+          
+
+<!-- ******************************************************************* -->
+          
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div> -->
+        
+      </div>
+    </div>
+  </div>
     
     <div class="site-section" data-aos="fade">
       <div class="container">
@@ -71,19 +127,21 @@
         <div class="row">
         @foreach($a as $v_cat)
 
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
             <div class="listing-item">
               <div class="listing-image">
                 <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
                 <a class="px-3 mb-3 category" href="#">{{$v_cat->nom}}</a>
                 <h2 class="mb-1"><a href="listings-single.html">Luxe Hotel</a></h2>
                 <span class="address">West Orange, New York</span>
+                <button type="button" class="bookmark btn btn-info btn-lg" data-toggle="modal" data-target="#show"><span class="icon-plus"></span></button>
+
               </div>
             </div>
           </div>
+
           @endforeach
         </div>
       
@@ -372,5 +430,12 @@
       </div>
     </div>
     @endguest
-    
+    <script>
+// When the user clicks on <div>, open the popup
+function text() {
+  //var popup = document.getElementById("myPopup");
+  console.log("show");
+}
+</script>
+
     @endsection
