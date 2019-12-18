@@ -169,17 +169,41 @@ class HomeController extends Controller
         $data=array();
         $data['nomA']=$request->nomA;
         $data['emplacement']=$request->emplacement;
-        //$nomC='$request->input('nomC')';
-        $nomC='h';
-        if( $nomC=='tous'){
-            $datC=['categories.nom','like','%%'];
+        $data['nomC']=$request->input('nomC');
+        
+        if( $data['nomC']=='tous'){
+            //$datC=['categories.nom','like','%%'];
+            $datC=['categories.id','>',0];
            
         }else{
-            $datC=['categories.nom','like','%h%'];
+            //$datC=['categories.nom','like','%'.$data['nomC'].'%'];
+            $datC=['categories.id','=',$data['nomC']];
         }
-        $state= DB::table('categories')->where($datC[0],$datC[1],$datC[2])->get();
-
-        dd($state);
+        if($data['nomA']==null) {
+            $datA=['articles.nom','like','%%'];
+        }else{
+            $datA=['articles.nom','like','%'.$data['nomA'].'%'];
+        }
+        if($data['emplacement']==null) {
+            $datEm=['articles.emplacement','like','%%'];
+         }else{
+            $datEm=['articles.emplacement','like','%'.$data['emplacement'].'%'];
+         }
+        $articles= DB::table('articles')->where($datA[0],$datA[1],$datA[2])
+                                ->where($datEm[0],$datEm[1],$datEm[2])
+                                ->join('categories','categories.id','=','articles.categories_id')
+                                ->where($datC[0],$datC[1],$datC[2])
+                                ->join('users','users.id','=','articles.users_id')
+                                ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU'/*,users.tel as tel*/,'articles.*')
+                                                            
+                                ->get();              
+        
+                                    
+                                    
+                                     
+        //$state= DB::table('categories')->where('categories.nom','like','%'.$nomC.'%')->get();
+        //$state=DB::select('select * from categories where nom like "%h%"');
+        return view ('articles')->with('a',$articles);
     }
 
 
