@@ -71,17 +71,9 @@
                     </li>
                   </ul> -->
                 </li>
-                <li class=" btn"><a href="articles"><span>Catégorie</span></a></li>
-                <li class=" btn"><a href="ajout"><span>Louer</span></a></li>
-                <!-- <li class=" btn"><a href="contact.html"><span>Contact</span></a></li> -->
-                <li class="has-children btn">
-                  <a ><span>Paramétres</span></a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="parametresArticles">Tous les articles</a></li>
-                    <li><a href="parametresCategories">Ajouter catégorie</a></li>
-                    <li><a href="DesignerAdmin">Designer admin </a></li>
-                  </ul>
-                </li>
+                <li class=" btn"><a href="articles"><span>Articles</span></a></li>
+                
+               
                 
             @guest
                             <li class="btn nav-item">
@@ -94,15 +86,40 @@
                             @endif
                         @else
                         
-
-
-
+                        <li class=" btn"><a href="ajout"><span>Louer</span></a></li>
+                        <!-- <li class=" btn"><a href="contact.html"><span>Contact</span></a></li> -->
+                                  @if(Auth()->user()->admin==1)
+                                        <li class="has-children btn">
+                                          <a ><span>Paramétres</span></a>
+                                          <ul class="dropdown arrow-top">
+                                            <li><a href="parametresArticles">Tous les articles</a></li>
+                                            <li><a href="parametresCategories">Ajouter catégorie</a></li>
+                                            <li><a href="DesignerAdmin">Designer admin </a></li>
+                                          </ul>
+                                        </li>
+                                        @endif
                             <li class="btn nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
                                 </a>
 
+                                <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        <span>{{ __('Voir Profil') }}</span>
+                                    </a>
+
+                                   
+                                </div> -->
+                                
+                                
+                                
+                                
+                                
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                            
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -113,6 +130,7 @@
                                         @csrf
                                     </form>
                                 </div>
+
                             </li>
                         @endguest
 

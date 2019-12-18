@@ -23,7 +23,7 @@
           <div class="col-md-6 mb-8" style="margin-left: 25%;">
             <div class="container " style="margin-top: -40%;  ">
             <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Louer vos biens') }}</div>
 
@@ -51,41 +51,41 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nom" class="col-md-6 col-form-label ">{{ __('Nom du bien') }}</label>
+                            <span for="nom" class="col-md-6 col-form-label ">{{ __('Nom du bien') }}</span>
 
                             <div class="col-md-12">
-                                <input id="nom" type="text" name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
+                                <center><input id="nom" type="text" name="nom" style="width: 80%; height:40px;"value="{{ old('nom') }}" required autocomplete="nom" autofocus></center>
                             </div>
                         </div>
 
                         <div class="form-group row">
                         <label for="nom" class="col-md-6 col-form-label ">{{ __('Categorie') }}</label>
 
-                    <div class="col-md-8 ">
-                    <div class="select-wrap">
-                      <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                      <select class="form-control" name="categorie" >
+                    <div class="col-md-12 ">
+                    <center><div class="select-wrap" style="width: 80%; height:40px;">
+                    <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
+                   <select class="form-control" name="categorie"  >
                       <option value="tous">Tous les categories</option>
                       @foreach($b as $val_categorie)
                         <option value={{$val_categorie->id}}>{{$val_categorie->nom}}</option>
                         @endforeach                 
-                          </select>
+                          </select> </center>
                     </div>
                   </div>
                   
                         <!-- <label for="categorie" class="col-md-6 col-form-label ">{{ __('Categorie') }}</label>
                             <div class="col-md-12">
                                 <input id="categorie" type="text"  name="categorie" value="{{ old('prenom') }}" required autocomplete="Categorie" autofocus>
-                            </div>-->
-                            </div> 
+                            </div>
+                            </div> -->
 
-
-                        <div class="form-group row">
-                            <label for="prix" class="col-md-12 col-form-label ">{{ __('Prix') }}</label>
+                            <div class="form-group row">
+                            <span for="nom" class="col-md-6 col-form-label ">{{ __('Prix') }}</span>
 
                             <div class="col-md-12">
-                                <input id="prix" type="prix"  name="prix" value="{{ old('email') }}" required autocomplete="prix">
-
+                                <center>
+                        <input id="prix" type="prix" style="width: 80%; height:40px;" name="prix" value="{{ old('email') }}" required autocomplete="prix">
+                               </center>
                                 
                             </div>
                         </div>
@@ -94,14 +94,38 @@
                             <label for="emplacement" class="col-md-12 col-form-label ">{{ __('Emplacement') }}</label>
 
                             <div class="col-md-12">
-                                <input id="emplacement" type="emplacement" name="emplacement" required autocomplete="emplacement">
-
+                            <center> <input id="emplacement" type="emplacement"style="width: 80%; height:40px;" name="emplacement" required autocomplete="emplacement">
+                            </center>
                              
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="description" class="col-md-12 col-form-label ">{{ __('Description') }}</label>
+
+                            <div class="col-md-12">
+                            <center> 
+                            <textarea style="width: 80%; height:140px;"  name="description" id="description" cols="30" rows="7" class="form-control" placeholder="Écrivez votre description ici ..."></textarea>
+               
+                            </center>
+                             
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="form-group row">
                 <div class="col-md-12">
-                    <input type="file" name="image" class="form-control">
-                </div>
+                <center> <input type="file" style="width: 90%; height:45px;" name="image" class="form-control"> </center> 
+                </div></div>
                 <br>
                         <!-- <div class="form-group row">
                             <label for="password-confirm" class="col-md-12 col-form-label ">{{ __('Confirmer Mot de Passe') }}</label>

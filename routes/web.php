@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/','HomeController@index')->defaults('slug', '6');
-Route::get('/home', 'HomeController@index')->defaults('slug', '6');
+Route::get('/','HomeController@index')->defaults('slug', '6')  ;
 
-Route::get('/articles', 'HomeController@index')->defaults('slug', '2');
+Route::get('/home', 'HomeController@index')->defaults('slug', '6')  ;
 
+Route::get('/articles', 'HomeController@index')->defaults('slug','9')  ;
 
 
 Route::get('/ajout','HomeController@getAllcategories');
@@ -71,3 +71,28 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+
+Route::get('/searchHotel','HomeController@index')->defaults('slug', 'Hôtels')  ;
+
+
+Route::get('/searchSalleDeSport','HomeController@index')->defaults('slug', 'Salle de sport')  ;
+
+
+Route::get('/searchSalleDeFetes','HomeController@index')->defaults('slug', 'Salles des fêtes/congrès')  ;
+
+
+Route::get('/searchImmobilier','HomeController@index')->defaults('slug', 'Immeubles')  ;
+
+
+Route::get('/searchVoiture','HomeController@index')->defaults('slug', 'Voitures')  ;
+
+
+Route::get('/searchAll','HomeController@index')->defaults('slug', 'all')  ;
+
+Route::post('/search', 'HomeController@searchArticle');
+
+
+
+
+
+                                                  

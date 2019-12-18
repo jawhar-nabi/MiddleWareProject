@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+  
     <div class="site-blocks-cover overlay" style="background-image: url(images/85.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
 		
       <div class="container">
@@ -21,29 +22,27 @@
             </div>
 
             <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
-              <form method="post">
+              <form method="post" action="{{ url('search') }}">
+              @csrf
                 <div class="row align-items-center">
                   <div class="col-lg-12 col-xl-4 no-sm-border border-right">
-                    <input type="text" class="form-control" placeholder="Que cherchez vous?">
+                    <input id="nomA"  name="nomA" type="text" class="form-control" placeholder="Que cherchez vous?">
                   </div>
                   <div class="col-lg-12 col-xl-3 no-sm-border border-right">
                     <div class="wrap-icon">
                       <span class="icon icon-room"></span>
-                      <input type="text" class="form-control" placeholder="Location">
+                      <input id="emplacement"  name="emplacement" type="text" class="form-control" placeholder="Location">
                     </div>
                     
                   </div>
                   <div class="col-lg-12 col-xl-3">
                     <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                      <select class="form-control" name="" id="">
-                        <option value="">Tous les categories</option>
-                        <option value="">Hôtels</option>
-                        <option value="">Restaurants</option>
-                        <option value="">Manger &amp; Boire</option>
-                        <option value="">Evenements</option>
-                        <option value="">Fitness</option>
-                        <option value="">Others</option>
+                      <select class="form-control" id="nomC"  name="nomC">
+                      <option value="tous">Tous les categories</option>
+                      @foreach($b as $val_categorie)
+                        <option value={{$val_categorie->id}}>{{$val_categorie->nom}}</option>
+                        @endforeach  
                       </select>
                     </div>
                   </div>
@@ -63,6 +62,8 @@
 
 <!-- Modal -->
   <div class="container">
+
+
     <div class="modal fade" id="show" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
       
@@ -125,24 +126,24 @@ Typically, you will need to publish your package's configuration file to the app
         </div>
 
         <div class="row">
-        @foreach($a as $v_cat)
+        @foreach($a as $v_art)
 
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
-            <div class="listing-item">
-              <div class="listing-image">
-                <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              </div>
-              <div class="listing-item-content">
-                <a class="px-3 mb-3 category" href="#">{{$v_cat->nom}}</a>
-                <h2 class="mb-1"><a href="listings-single.html">Luxe Hotel</a></h2>
-                <span class="address">West Orange, New York</span>
-                <button type="button" class="bookmark btn btn-info btn-lg" data-toggle="modal" data-target="#show"><span class="icon-plus"></span></button>
+            <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
+              <div class="listing-item">
+                <div class="listing-image">
+                  <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                </div>
+                <div class="listing-item-content">
+                  <a class="px-3 mb-3 category" >{{$v_art->nomC}}</a>
+                  <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
+                  <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
+                  <button type="button" class="bookmark btn btn-info btn-lg" data-toggle="modal" data-target="#show"><span class="icon-plus"></span></button>
 
+                </div>
               </div>
             </div>
-          </div>
 
-          @endforeach
+            @endforeach
         </div>
       
 
@@ -158,43 +159,43 @@ Typically, you will need to publish your package's configuration file to the app
 
         <div class="row align-items-stretch">
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-hotel"></span></span>
+            <a href="{{ URL::to('searchHotel') }}" class="popular-category h-100">
+              <span class="icon mb-3"><span class="icon-hotel"></span></span>
               <span class="caption mb-2 d-block">Hôtels</span>
               <span class="number">+100</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-microphone"></span></span>
-              <span class="caption mb-2 d-block">Evenements</span>
+            <a href="{{ URL::to('searchSalleDeSport') }}" class="popular-category h-100">
+              <span class="icon mb-3"><span class="flaticon-bike"></span></span>
+              <span class="caption mb-2 d-block">Salle de sport</span>
               <span class="number">+140</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-flower"></span></span>
+            <a href="{{ URL::to('searchSalleDeFetes') }}" class="popular-category h-100">
+              <span class="icon mb-3"><span class="icon-heart"></span></span>
               <span class="caption mb-2 d-block">Salle de fêtes</span>
               <span class="number">+55</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-restaurant"></span></span>
+            <a href="{{ URL::to('searchImmobilier') }}" class="popular-category h-100">
+              <span class="icon mb-3"><span class="icon-home"></span></span>
               <span class="caption mb-2 d-block">Immobilier</span>
               <span class="number">+3000</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
+            <a href="{{ URL::to('searchVoiture') }}" class="popular-category h-100">
+              <span class="icon mb-3"><span class="icon-car"></span></span>
               <span class="caption mb-2 d-block">Voitures</span>
               <span class="number">439</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-bike"></span></span>
+            <a href="{{ URL::to('searchAll') }}" class="popular-category h-100">
+              <span class="icon mb-3"><span class="icon-room"></span></span>
               <span class="caption mb-2 d-block">Other</span>
               <span class="number">6920</span>
             </a>
@@ -202,7 +203,7 @@ Typically, you will need to publish your package's configuration file to the app
         </div>
 
         <div class="row mt-5 justify-content-center tex-center">
-          <div class="col-md-4"><a href="#" class="btn btn-block btn-outline-primary btn-md px-5">Voir toutes les categories</a></div>
+          <div class="col-md-4"><a href="{{ URL::to('searchAll') }}" class="btn btn-block btn-outline-primary btn-md px-5">Voir toutes les articles</a></div>
         </div>
       </div>
     </div>
@@ -212,7 +213,7 @@ Typically, you will need to publish your package's configuration file to the app
       <div class="container">
         <div class="row">
           <div class="col-md-6 mb-5">
-            <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded">
+            <img src="images/13628.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded">
           </div>
           <div class="col-md-5 ml-auto">
             <h2 class="text-primary mb-3">Pourquoi nous ?</h2>
