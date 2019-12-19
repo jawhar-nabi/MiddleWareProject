@@ -119,6 +119,7 @@ class HomeController extends Controller
         $data['description']=$request->description;
         $data['emplacement']=$request->emplacement;
         $data['categories_id']=$request->input('categorie');
+        $data['num']=$request->num;
         $data['users_id']=Auth()->user()->id;
         $data['partager']=false;
         $request->validate([

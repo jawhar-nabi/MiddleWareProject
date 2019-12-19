@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="site-blocks-cover overlay" style="background-image: url(images/2529051.jpg); opacity:0.7;" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay" style="background-image: url(images/2529051.jpg); opacity:0.9;" data-aos="fade" data-stellar-background-ratio="0.5">
 		
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
@@ -121,33 +121,30 @@
   <!-- ****************************************************** -->
 
     <div class="row">
-      <div class="col-md-14 mb-14 mb-lg-14 col-lg-14" >
+      <div class="col-md-18 mb-18 mb-lg-18 col-lg-18" >
         <div class="listing-item">
           <div class="listing-image">
-            <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+            <img id="imageA" src="" alt="failed to load image" class="img-fluid" width="200" height="100">
           </div>
           <div class="listing-item-content">
             <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-            <a id="categorie" class="px-3 mb-3 category" href="#">jhjhqkfjhq</a>
+            
+            <a id="categorie" class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}">jhjhqkfjhq</a>
             <h2 id="titre" class="mb-1"></h2>
-            <span id="emplacement" class="address"></span>
-
           </div>
         </div>
-      <h6 style="background-color : white;">Service providers are the connection points between your package and Laravel. A service provider is responsible for binding things into Laravel's service container and informing Laravel where to load package resources such as views, configuration, and localization files.
+        <div style="background-color : white;">
+            <span id="emplacement" class="address"></span>
+        <h5><b>Description : </b></h5>
+        <h6 id="description" ></h6>
+        <h5><b>Telephone : </b></h5>
+        <h6 id="num" ></h6>
+        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
-A service provider extends the Illuminate\Support\ServiceProvider class and contains two methods: register and boot. The base ServiceProvider class is located in the illuminate/support Composer package, which you should add to your own package's dependencies. To learn more about the structure and purpose of service providers, check out their documentation.
-
-
-Resources
-
-Configuration
-Typically, you will need to publish your package's configuration file to the application's own config directory. This will allow users of your package to easily override your default configuration options. To allow your configuration files to be published, call the publishes method from the boot method of your service provider:</h6>
+        <br><br>
         </div>
         </div>
-      
-   
-      
+        </div>
 
 <!-- ******************************************************************* -->
       
@@ -176,13 +173,13 @@ Typically, you will need to publish your package's configuration file to the app
             <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
               <div class="listing-item">
                 <div class="listing-image">
-                  <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                  <img src="pics/{{$v_art->image}}" alt="Free Website Template by Free-Template.co" class="img-fluid">
                 </div>
                 <div class="listing-item-content">
-                  <a class="px-3 mb-3 category" >{{$v_art->nomC}}</a>
+                  <a class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}" >{{$v_art->nomC}}</a>
                   <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
                   <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
-                  <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}")'><span class="icon-plus"></span></button>
+                  <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}","{{$v_art->description}}","{{$v_art->image}}","{{$v_art->num}}")'><span class="icon-plus"></span></button>
 
                 </div>
               </div>
@@ -253,16 +250,22 @@ Typically, you will need to publish your package's configuration file to the app
     </div>
     @endguest
     <script>
-// When the user clicks on <div>, open the popup
-function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement) {
-  //var popup = document.getElementById("myPopup");
-  console.log(categorie);
+function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement, description,image,num) {
   document.getElementById('titre').innerHTML = titre;
   document.getElementById('categorie').innerHTML = categorie;
   document.getElementById('emplacement').innerHTML = emplacement;
+  document.getElementById('description').innerHTML = description;
+  document.getElementById('imageA').src = "pics/"+image;
+  document.getElementById('num').innerHTML = num;
 
 }
 </script>
 <script>
+$(function () {
+  $('.example-popover').popover({
+    container: 'body'
+  })
+})
+
 </script>
     @endsection

@@ -65,7 +65,7 @@
      
 
       <th scope="col">{{$v_article->nomU}} {{$v_article->prenomU}}</th>
-      <th scope="col">{{$v_article->images_id}}</th>
+      <th scope="col">{{$v_article->image}}</th>
       <td>
         <!--button type="button" class="btn btn-success">Accepter</button>
         <button type="button" class="btn btn-warning">Ignorer</button-->

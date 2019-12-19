@@ -84,7 +84,7 @@
 
                             <div class="col-md-12">
                                 <center>
-                        <input id="prix" type="prix" style="width: 80%; height:40px;" name="prix" value="{{ old('email') }}" required autocomplete="prix">
+                        <input id="prix" type="number" min="0" max="1000000" style="width: 80%; height:40px;" name="prix" value="{{ old('email') }}" required autocomplete="prix">
                                </center>
                                 
                             </div>
@@ -94,12 +94,22 @@
                             <label for="emplacement" class="col-md-12 col-form-label ">{{ __('Emplacement') }}</label>
 
                             <div class="col-md-12">
-                            <center> <input id="emplacement" type="emplacement"style="width: 80%; height:40px;" name="emplacement" required autocomplete="emplacement">
+                            <center> <input id="emplacement" type="text" style="width: 80%; height:40px;" name="emplacement" required autocomplete="emplacement">
                             </center>
                              
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="num" class="col-md-12 col-form-label ">{{ __('Numero de télephone') }}</label>
 
+                            <div class="col-md-12">
+                            <center> 
+                            <input type="tel"  style="width: 80%; height:40px;"  name="num" id="num"class="form-control" >
+               
+                            </center>
+                             
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="description" class="col-md-12 col-form-label ">{{ __('Description') }}</label>
 
