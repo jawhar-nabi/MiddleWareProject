@@ -118,15 +118,7 @@
 
 <div class="modal fade" id="show" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
-  
-    <!-- Modal content-->
-    <!-- <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">article id n°23</h4>
-      </div>
-      <div class="modal-body"> -->
-<!-- ****************************************************** -->
+  <!-- ****************************************************** -->
 
     <div class="row">
       <div class="col-md-14 mb-14 mb-lg-14 col-lg-14" >
@@ -136,9 +128,9 @@
           </div>
           <div class="listing-item-content">
             <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-            <a class="px-3 mb-3 category" href="#">jhjhqkfjhq</a>
-            <h2 class="mb-1"><a href="listings-single.html">Luxe Hotel</a></h2>
-            <span class="address">West Orange, New York</span>
+            <a id="categorie" class="px-3 mb-3 category" href="#">jhjhqkfjhq</a>
+            <h2 id="titre" class="mb-1"></h2>
+            <span id="emplacement" class="address"></span>
 
           </div>
         </div>
@@ -190,7 +182,7 @@ Typically, you will need to publish your package's configuration file to the app
                   <a class="px-3 mb-3 category" >{{$v_art->nomC}}</a>
                   <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
                   <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
-                  <button type="button" class="bookmark btn btn-info btn-lg" data-toggle="modal" data-target="#show"><span class="icon-plus"></span></button>
+                  <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}")'><span class="icon-plus"></span></button>
 
                 </div>
               </div>
@@ -260,5 +252,17 @@ Typically, you will need to publish your package's configuration file to the app
       </div>
     </div>
     @endguest
-    
+    <script>
+// When the user clicks on <div>, open the popup
+function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement) {
+  //var popup = document.getElementById("myPopup");
+  console.log(categorie);
+  document.getElementById('titre').innerHTML = titre;
+  document.getElementById('categorie').innerHTML = categorie;
+  document.getElementById('emplacement').innerHTML = emplacement;
+
+}
+</script>
+<script>
+</script>
     @endsection

@@ -431,12 +431,5 @@ Typically, you will need to publish your package's configuration file to the app
       </div>
     </div>
     @endguest
-    <script>
-// When the user clicks on <div>, open the popup
-function text() {
-  //var popup = document.getElementById("myPopup");
-  console.log("show");
-}
-</script>
 
     @endsection

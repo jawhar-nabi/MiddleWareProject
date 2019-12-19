@@ -47,7 +47,7 @@
             </div>
         @endif
         <!-- enctype="multipart/form-data" -->
-                    <form method="POST" action="{{ url('ajout') }}" >
+                    <form method="POST" action="{{ url('ajout') }}" enctype="multipart/form-data"  >
                         @csrf
 
                         <div class="form-group row">
