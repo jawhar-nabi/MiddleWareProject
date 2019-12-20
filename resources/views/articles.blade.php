@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="site-blocks-cover overlay" style="background-image: url(images/2529051.jpg); opacity:0.9;" data-aos="fade" data-stellar-background-ratio="0.5">
 		
@@ -116,33 +117,42 @@
   <div class="container">
 
 
-<div class="modal fade" id="show" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="show" role="dialog" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
   <!-- ****************************************************** -->
+  <div class="modal-content">
 
-    <div class="row">
-      <div class="col-md-18 mb-18 mb-lg-18 col-lg-18" >
+    <!-- <div class="row"> -->
+      <!-- <div class="col-md-18 mb-18 mb-lg-18 col-lg-18" > -->
         <div class="listing-item">
           <div class="listing-image">
-            <img id="imageA" src="" alt="failed to load image" class="img-fluid" width="200" height="100">
+            <img id="imageA" src="" alt="failed to load image." class="" width="200" height="100">
           </div>
-          <div class="listing-item-content">
-            <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-            
+          <div class="listing-item-content">            
             <a id="categorie" class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}">jhjhqkfjhq</a>
-            <h2 id="titre" class="mb-1"></h2>
+            <h2 id="titre" class="mb-1 "></h2>
           </div>
         </div>
-        <div style="background-color : white;">
-            <span id="emplacement" class="address"></span>
+        <div style="background-color : white; color : black;">
+            <!-- <span  ></span> -->
+            <i id="emplacement" class="fa fa-location-arrow" style="font-size:24px"></i>
+
         <h5><b>Description : </b></h5>
         <h6 id="description" ></h6>
         <h5><b>Telephone : </b></h5>
         <h6 id="num" ></h6>
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-
         <br><br>
+        <div class="col">
+           <div class="row">
+
+            <h6> publié par : </h6>       
+             <h5 id="prenom"></h5>
+            <h5 id="nom"></h5>
+
+          </div>
         </div>
+        <!-- </div> -->
+        <!-- </div> -->
         </div>
         </div>
 
@@ -257,6 +267,8 @@ function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement, descri
   document.getElementById('description').innerHTML = description;
   document.getElementById('imageA').src = "pics/"+image;
   document.getElementById('num').innerHTML = num;
+  document.getElementById('nom').innerHTML = nomAuteur+"  ";
+  document.getElementById('prenom').innerHTML = prenomAuteur+"  ";
 
 }
 </script>
