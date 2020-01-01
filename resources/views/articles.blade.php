@@ -23,14 +23,14 @@
         <div class="row align-items-stretch">
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="{{ URL::to('searchHotel') }}" class="popular-category h-100">
-              <span class="icon mb-3"><span class="icon-hotel"></span></span>
+              <span class="icon mb-3"><span class="fa fa-hotel"></span></span>
               <span class="caption mb-2 d-block">Hôtels</span>
               <span class="number">+100</span>
             </a>
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="{{ URL::to('searchSalleDeSport') }}" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-bike"></span></span>
+              <span class="icon mb-3"><span class="fa fa-soccer-ball-o"></span></span>
               <span class="caption mb-2 d-block">Salle de sport</span>
               <span class="number">+140</span>
             </a>
@@ -115,6 +115,19 @@
     
     <!-- Modal -->
   <div class="container">
+	<style>
+		.title {
+			margin-bottom: 5px;
+      margin-left: 8px;
+			color: #00918e;
+			font-weight: bold;
+		}
+    .descr {
+      margin-left: 13px;
+			
+			font-weight: bold;
+		}
+		</style>
 
 
 <div class="modal fade" id="show" role="dialog" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -129,28 +142,37 @@
             <img id="imageA" src="" alt="failed to load image." class="" width="200" height="100">
           </div>
           <div class="listing-item-content">            
-            <a id="categorie" class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}">jhjhqkfjhq</a>
-            <h2 id="titre" class="mb-1 "></h2>
+            <a id="categorie" class="px-3 mb-3 category" ></a>
+            <h2 id="titre" class="mb-1 "></h2>  
+             <!-- <span id="created_at"></span>  -->
+                 
           </div>
         </div>
-        <div style="background-color : white; color : black;">
+        <div style="background-color : white; ">
             <!-- <span  ></span> -->
-            <i id="emplacement" class="fa fa-location-arrow" style="font-size:24px"></i>
+            <i id="emplacement" class="fa fa-location-arrow title" style="font-size:24px"></i>
 
-        <h5><b>Description : </b></h5>
-        <h6 id="description" ></h6>
-        <h5><b>Telephone : </b></h5>
-        <h6 id="num" ></h6>
-        <br><br>
+        <h5 class="title"><b>Description : </b></h5>
+        <h6 class="descr" id="description" ></h6>
+
         <div class="col">
            <div class="row">
-
-            <h6> publié par : </h6>       
+        <h5 class="title"><b>Telephone : &nbsp;</b></h5>
+        <h5 id="num" ></h5>
+        </div></div>
+        <br>
+        
+        <div class="col" > 
+           <div class="row">
+          
+            <h5 class="title" > publié par : &nbsp;</h5>       
              <h5 id="prenom"></h5>
+             &nbsp;
             <h5 id="nom"></h5>
-
+            
           </div>
         </div>
+        
         <!-- </div> -->
         <!-- </div> -->
         </div>
@@ -169,6 +191,7 @@
       
     
     <div style="margin-top : 7% ;" class="site-section" data-aos="fade">
+    
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
@@ -181,15 +204,18 @@
         @foreach($a as $v_art)
 
             <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
-              <div class="listing-item">
+              <div class="listing-item" style="height:220px;">
                 <div class="listing-image">
                   <img src="pics/{{$v_art->image}}" alt="Free Website Template by Free-Template.co" class="img-fluid">
                 </div>
                 <div class="listing-item-content">
                   <a class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}" >{{$v_art->nomC}}</a>
                   <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
+                  <span class="">{{\Carbon\Carbon::parse($v_art->created_at)->diffForHumans()}}</span>
+                  <br>
                   <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
-                  <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}","{{$v_art->description}}","{{$v_art->image}}","{{$v_art->num}}")'><span class="icon-plus"></span></button>
+                  
+                  <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}","{{$v_art->description}}","{{$v_art->image}}","{{$v_art->num}}","{{$v_art->created_at}}")'><span class="icon-plus"></span></button>
 
                 </div>
               </div>
@@ -197,9 +223,10 @@
 
             @endforeach
         </div>
-      
-
-
+        <div  style="margin-right: auto; margin-left: auto; width: 10% ;">
+       {{ $a->links() }}
+       
+        </div>
 
     <!-- <div class="site-section">
       <div class="container">
@@ -260,7 +287,7 @@
     </div>
     @endguest
     <script>
-function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement, description,image,num) {
+function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement, description,image,num,created_at) {
   document.getElementById('titre').innerHTML = titre;
   document.getElementById('categorie').innerHTML = categorie;
   document.getElementById('emplacement').innerHTML = emplacement;
@@ -269,6 +296,10 @@ function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement, descri
   document.getElementById('num').innerHTML = num;
   document.getElementById('nom').innerHTML = nomAuteur+"  ";
   document.getElementById('prenom').innerHTML = prenomAuteur+"  ";
+
+  date=new Date(created_at);
+  document.getElementById('created_at').innerHTML = date.getDate()+"-"+date.getMonth()+1+"-"+date.getFullYear()+", à "+date.getHours()+":"+date.getMinutes();
+  
 
 }
 </script>

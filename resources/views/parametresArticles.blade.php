@@ -1,12 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-  <div style="background-color:grey;">
+@if(Auth()->user()->admin==0)
+<div class="site-wrap" >
+
+<div class=" site-blocks-cover inner-page-cover overlay"  data-aos="fade" data-stellar-background-ratio="0.5">
+  
+
+  <div class="container">
+
+
+  
+  </div>
+</div>  
+
+<div >
+<div  style="margin-top: -20%; z-index : 289; margin-bottom:20%; ">
+  <div class="container" >
+  <center><h1>404|Not Found </h1></center>
+    
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+@endif
+@if(Auth()->user()->admin==1)
+  <div style="background-color:grey;" >
     <br><br><br><br><br><br>
 
-    <div class="container">
+    <div class="container" >
       
-    <div class="card-body">
+    <div class="card-body" >
                 @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -23,9 +53,16 @@
         @endif
 
       </div>
+      <style>
+		.title {
+			margin-bottom: 15px;
+      margin-left: 0px;
+			color: #ffffff;
+			font-weight: bold;
+		}
+    </style>
 
-
-      <h2>Tous les Articles</h2>
+      <h2 class="title">Tous les Articles</h2>
       
         <div class="container">
         
@@ -79,13 +116,22 @@
     </tr>
     @endforeach
   </tbody>
-</table>
-
-
   
+</table>
+      <div  style="margin-right: auto; margin-left: auto; width: 10% ;">
+       {{ $allArticles->links() }}
+       
+        </div>
+
+        <div  style="margin-top: 20%;">
+
+        <br>
+
+        </div>
 
   
       </div>
     </div>
   </div>
+  @endif
     @endsection

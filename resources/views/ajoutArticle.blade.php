@@ -24,8 +24,11 @@
         <p class="mb-0 text-white">Vite créer votre compte et trouver plus facilement les dernieres offres dans KIRA </p>
       </div>
       <div class="col-lg-4">
-        <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">S'inscrire</a></p>
+      <div class="row"  >
+      <p class="mb-0" style="width:50%;"><a style="width:100%;" href="{{ route('login') }}" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Se connecter</a></p>
+      <p class="mb-0" style="width:50%;"><a style="width:100%;" href="{{ route('register') }}" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">S'inscrire</a></p>
       </div>
+     </div>
     </div>
   </div>
 </div>

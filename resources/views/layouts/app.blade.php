@@ -198,14 +198,14 @@
           <div class="col-lg-3">
             <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <form action="#" method="post">
+            <!-- <form action="#" method="post">
               <div class="input-group mb-3">
                 <input type="text" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
                 <div class="input-group-append">
                   <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
                 </div>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
         <div class="row pt-5 mt-5">

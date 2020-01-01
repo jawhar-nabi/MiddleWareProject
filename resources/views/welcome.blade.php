@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
     <div class="site-blocks-cover overlay" style="background-image: url(images/85.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
 		
@@ -60,8 +61,21 @@
     </div>
 
 
-   <!-- Modal -->
+   <!-- Modal href="{{ URL::to('searchVoiture') }}"-->
    <div class="container">
+	<style>
+		.title {
+			margin-bottom: 5px;
+      margin-left: 8px;
+			color: #00918e;
+			font-weight: bold;
+		}
+    .descr {
+      margin-left: 13px;
+			
+			font-weight: bold;
+		}
+		</style>
 
 
 <div class="modal fade" id="show" role="dialog" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -76,32 +90,40 @@
             <img id="imageA" src="" alt="failed to load image." class="" width="200" height="100">
           </div>
           <div class="listing-item-content">            
-            <a id="categorie" class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}">jhjhqkfjhq</a>
+            <a id="categorie" class="px-3 mb-3 category" ></a>
             <h2 id="titre" class="mb-1 "></h2>
           </div>
         </div>
-        <div style="background-color : white; color : black;">
+        <div style="background-color : white; ">
             <!-- <span  ></span> -->
-            <i id="emplacement" class="fa fa-location-arrow" style="font-size:24px"></i>
+            <i id="emplacement1" class="fa fa-location-arrow title" style="font-size:24px"></i>
 
-        <h5><b>Description : </b></h5>
-        <h6 id="description" ></h6>
-        <h5><b>Telephone : </b></h5>
-        <h6 id="num" ></h6>
-        <br><br>
+        <h5 class="title"><b>Description : </b></h5>
+        <h6 class="descr" id="description" ></h6>
+
         <div class="col">
            <div class="row">
-
-            <h6> publié par : </h6>       
+        <h5 class="title"><b>Telephone : &nbsp;</b></h5>
+        <h5 id="num" ></h5>
+        </div></div>
+        <br>
+        
+        <div class="col" > 
+           <div class="row">
+          
+            <h5 class="title" > publié par : &nbsp;</h5>       
              <h5 id="prenom"></h5>
+             &nbsp;
             <h5 id="nom"></h5>
-
+            
           </div>
         </div>
+        
         <!-- </div> -->
         <!-- </div> -->
         </div>
         </div>
+
 
 <!-- ******************************************************************* -->
       
@@ -126,23 +148,22 @@
         <div class="row">
         @foreach($a as $v_art)
 
-            <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
-              <div class="listing-item">
-                <div class="listing-image">
+          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" >
+            <div class="listing-item" style="height:220px;">
+              <div class="listing-image">
                 <img src="pics/{{$v_art->image}}" alt="Free Website Template by Free-Template.co" class="img-fluid">
-                </div>
-                <div class="listing-item-content">
-                  <a class="px-3 mb-3 category" >{{$v_art->nomC}}</a>
-                  <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
-                  <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
-                  <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg"  data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}","{{$v_art->description}}","{{$v_art->image}}","{{$v_art->num}}")'><span class="icon-plus"></span></button>
+              </div>
+              <div class="listing-item-content">
+                <a class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}" >{{$v_art->nomC}}</a>
+                <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
+                <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
+                <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}","{{$v_art->description}}","{{$v_art->image}}","{{$v_art->num}}")'><span class="icon-plus"></span></button>
 
-
-                </div>
               </div>
             </div>
+          </div>
 
-            @endforeach
+          @endforeach
         </div>
       
 
@@ -166,7 +187,7 @@
           </div>
           <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
             <a href="{{ URL::to('searchSalleDeSport') }}" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-bike"></span></span>
+              <span class="icon mb-3"><span class="fa fa-soccer-ball-o"></span></span>
               <span class="caption mb-2 d-block">Salle de sport</span>
               <span class="number">+140</span>
             </a>
@@ -309,7 +330,7 @@
       </div>
     </div>
     
-    <div class="site-section bg-light">
+    <!-- <div class="site-section bg-light">
       <div class="container">
 
         <div class="row justify-content-center mb-5">
@@ -368,7 +389,7 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
@@ -424,7 +445,7 @@
             <p class="mb-0 text-white">Vite créer votre compte et trouver plus facilement les dernieres offres dans KIRA </p>
           </div>
           <div class="col-lg-4">
-            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">S'inscrire</a></p>
+            <p class="mb-0"><a href="{{ route('register') }}" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">S'inscrire</a></p>
           </div>
         </div>
       </div>
@@ -434,7 +455,7 @@
 function myModal(id,categorie,titre,nomAuteur, prenomAuteur, emplacement, description,image,num) {
   document.getElementById('titre').innerHTML = titre;
   document.getElementById('categorie').innerHTML = categorie;
-  document.getElementById('emplacement').innerHTML = emplacement;
+  document.getElementById('emplacement1').innerHTML = emplacement;
   document.getElementById('description').innerHTML = description;
   document.getElementById('imageA').src = "pics/"+image;
   document.getElementById('num').innerHTML = num;

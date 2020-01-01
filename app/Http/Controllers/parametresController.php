@@ -21,8 +21,9 @@ class parametresController extends Controller
             $articles=DB::table('articles')
             ->join('categories','categories.id','=','articles.categories_id')
             ->join('users','users.id','=','articles.users_id')
-                
-                ->select('categories.nom as nomc','users.nom as nomU','users.prenom as prenomU','articles.*')->get();
+            ->orderBy('id', 'desc')
+                ->select('categories.nom as nomc','users.nom as nomU','users.prenom as prenomU','articles.*')
+                ->paginate(10);
 
         /*$articles=DB::table('articles')
                     ->get();*/
@@ -95,7 +96,7 @@ class parametresController extends Controller
     }
     public function getAllCategories(){
         $categories=DB::table('categories')
-        ->get();
+        ->paginate(10);
        
         return view('parametresCategories')->with('allCategories',$categories);
       
@@ -103,7 +104,7 @@ class parametresController extends Controller
     public function designerAdmin(){
 
         $users=array();
-        $admins=DB::table('users')->where('admin', true)->get();
+        $admins=DB::table('users')->where('admin', true)->paginate(2);
         return view('designerAdmin')->with('allUsers',$users)
                                     ->with('allAdmins',$admins);
     }
@@ -121,7 +122,7 @@ class parametresController extends Controller
                 $users=DB::table('users')
                     ->where('nom', $data['nom'])
                      ->where('prenom', $data['prenom'])
-                        ->get();
+                     ->get();
 
             }else{
                 $users=DB::table('users')

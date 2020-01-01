@@ -1,12 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Auth()->user()->admin==0)
+<div class="site-wrap">
+
+<div class=" site-blocks-cover inner-page-cover overlay"  data-aos="fade" data-stellar-background-ratio="0.5">
+  
+
+  <div class="container">
+
+
+  
+  </div>
+</div>  
+
+<div >
+<div  style="margin-top: -20%; z-index : 289; margin-bottom:20%; ">
+  <div class="container" >
+  <center><h1>404|Not Found </h1></center>
+    
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+@endif
+@if(Auth()->user()->admin==1)
+<style>
+		.title {
+			margin-bottom: 15px;
+      margin-left: 0px;
+			color: #ffffff;
+			font-weight: bold;
+		}
+    </style>
+
   <div style="background-color:#878686;">
     <br><br><br><br><br><br>
 
     <div class="container">
       
-    <h2>Ajouter Categories</h2>
+    <h2 class="title">Ajouter Categories</h2>
     <form method="post" action="{{ url('ajouterCategories') }}" >
     @csrf
 <div class="row" style="margin-top: 1%;">
@@ -48,7 +87,10 @@
         @endif
 
       </div>
-  <h2 style="text-align:center">Listes Catégories</h2>
+     
+
+      
+  <h2 class="title" style="text-align:center">Listes Catégories</h2>
   <div class="container">
   <table class="table table-hover table-dark">
   <thead>
@@ -72,11 +114,16 @@
 
   </table>
 
-  <div  style="margin-top: 20%;">
+  <div  style="margin-right: auto; margin-left: auto; width: 10% ;">
+       {{ $allCategories->links() }}
+       
+        </div>
 
-  <br>
+        <div  style="margin-top: 20%;">
 
-</div>
+        <br>
+
+        </div>
 
   </div>
 
@@ -88,4 +135,5 @@
 
     </div>
   </div>
+  @endif
     @endsection

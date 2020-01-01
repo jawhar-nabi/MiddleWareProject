@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 use App\User;
 class HomeController extends Controller
 {
@@ -24,6 +25,9 @@ class HomeController extends Controller
      */
     public function index($slug)
     {   //dd(Auth()->user()->admin);
+        Carbon::setLocale('fr');
+
+
         $categories=DB::table('categories')
         /*->orderBy('nom', 'asc')
         ->limit($slug)*/
@@ -67,26 +71,33 @@ class HomeController extends Controller
 
         if($slug=='6' || $slug=='9'){
             $articles=DB::table('articles')
+            ->where('partager', true)
             ->orderBy('id', 'desc')
             ->limit($slug)
             ->join('categories','categories.id','=','articles.categories_id')
             ->join('users','users.id','=','articles.users_id')
             ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU'/*,users.tel as tel*/,'articles.*')
-            ->get();
+            ->paginate($slug) ;
+            
+           // dd(Carbon::parse($articles[0]->created_at)->diffForHumans());
         }elseif ($slug=='all' ){
             $articles=DB::table('articles')
+            ->where('partager', true)
+            ->orderBy('id', 'desc')
             ->join('categories','categories.id','=','articles.categories_id')
             ->join('users','users.id','=','articles.users_id')
             ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU'/*,users.tel as tel*/,'articles.*')
-            ->get();
+            ->paginate(9) ;
         }else{
         
             $articles=DB::table('articles')
             ->join('categories','categories.id','=','articles.categories_id')
             ->where('categories.nom',$slug)
+            ->where('partager', true)
+            ->orderBy('id', 'desc')
             ->join('users','users.id','=','articles.users_id')
             ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU'/*,users.tel as tel*/,'articles.*')
-            ->get();
+            ->paginate(9) ;
         }
 
        
@@ -122,6 +133,9 @@ class HomeController extends Controller
         $data['num']=$request->num;
         $data['users_id']=Auth()->user()->id;
         $data['partager']=false;
+        $data['created_at']=Carbon::now()->toDateTimeString();
+        $data['updated_at']=Carbon::now()->toDateTimeString();
+        
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', ]);
        
@@ -154,8 +168,9 @@ class HomeController extends Controller
    
         // $request->image->move(public_path('images'), $imageName);
          
-
+       
         $state= DB::table('articles')->insert($data);
+
         if($state){
         return back()
         ->with('success','You have successfully added an item.')
@@ -192,12 +207,13 @@ class HomeController extends Controller
          }
         $articles= DB::table('articles')->where($datA[0],$datA[1],$datA[2])
                                 ->where($datEm[0],$datEm[1],$datEm[2])
+                                ->where('partager', true)
                                 ->join('categories','categories.id','=','articles.categories_id')
                                 ->where($datC[0],$datC[1],$datC[2])
                                 ->join('users','users.id','=','articles.users_id')
                                 ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU'/*,users.tel as tel*/,'articles.*')
-                                                            
-                                ->get();              
+                                ->paginate(9)    ;              
+                                             
         
                                     
                                     
