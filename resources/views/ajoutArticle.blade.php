@@ -1,21 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+
+@guest
+<div class="site-wrap">
+
+<div class=" site-blocks-cover inner-page-cover overlay"  data-aos="fade" data-stellar-background-ratio="0.5">
   
+
+  <div class="container">
+
+
+  
+  </div>
+</div>  
+
+<div >
+<div class="py-5 bg-primary" style="margin-top: -20%; z-index : 289;  ">
+  <div class="container" >
+    <div class="row">
+      <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
+        <h2 class="mb-3 mt-0 text-white">N'hesites pas de créer votre compte maintenant !</h2>
+        <p class="mb-0 text-white">Vite créer votre compte et trouver plus facilement les dernieres offres dans KIRA </p>
+      </div>
+      <div class="col-lg-4">
+        <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">S'inscrire</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+@else
+
+
+
+
+
   <div class="site-wrap">
 
     <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/login.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
 
-          <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
-            <div class="row justify-content-center">
-            </div>
-          </div>
-        </div>
+
+      
       </div>
     </div>  
-
+   
     <div  >
       <div  >
         <div >
@@ -167,6 +198,7 @@
     
     
   </div>
+  @endguest
 
   @endsection
 
