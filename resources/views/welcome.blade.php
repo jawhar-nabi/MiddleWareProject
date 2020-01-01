@@ -155,7 +155,9 @@
               </div>
               <div class="listing-item-content">
                 <a class="px-3 mb-3 category" href="{{ URL::to('searchVoiture') }}" >{{$v_art->nomC}}</a>
-                <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>
+                <h2 class="mb-1"><a >{{$v_art->nom}}</a></h2>        
+                <span class="">{{\Carbon\Carbon::parse($v_art->created_at)->diffForHumans()}}</span>
+                <br>
                 <span class="address">{{$v_art->nomU}} {{$v_art->prenomU}}, {{$v_art->emplacement}}</span>
                 <button href="#my_modal" type="button" class="bookmark btn btn-info btn-lg" data-myvalue="trouducul" data-toggle="modal" data-target="#show" data-articleid="{{$v_art->id}}" onclick='myModal({{$v_art->id}},"{{$v_art->nomC}}","{{$v_art->nom}}","{{$v_art->nomU}}", "{{$v_art->prenomU}}", "{{$v_art->emplacement}}","{{$v_art->description}}","{{$v_art->image}}","{{$v_art->num}}")'><span class="icon-plus"></span></button>
 
