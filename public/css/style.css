@@ -1560,7 +1560,8 @@ h1, h2, h3, h4, h5,
     padding-left: 20px;
     padding-right: 20px;
     z-index: 2;
-    width: 100%; }
+    width: 100%; 
+  }
     .listing-item .listing-item-content .category {
       font-size: 12px;
       display: inline-block;
@@ -1808,3 +1809,17 @@ h1, h2, h3, h4, h5,
 	opacity: 1;
 }
 
+.avatar{
+  position: relative;
+  width: 33%;
+  height: 33%;
+  border-radius: 50%;
+  margin-top: 10%;
+}
+
+.param:hover  {
+  cursor: pointer;
+
+  color:  #fff;
+  background:  rgba(255, 255, 255, 0.2);
+}

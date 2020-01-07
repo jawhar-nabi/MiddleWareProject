@@ -5,6 +5,7 @@
     <title>Kira.tn</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
 
@@ -54,23 +55,7 @@
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
 
                 <li class=" btn active"><a href="/"><span>Accueil</span></a></li>
-             <!--   <li class="has-children">
-                  <a href="about.html"><span>Dropdown</span></a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                    <li class="has-children">
-                      <a href="#">Dropdown</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                        <li><a href="#">Menu Four</a></li>
-                      </ul>
-                    </li>
-                  </ul> -->
-                </li>
+           
                 <li class=" btn"><a href="articles"><span>Articles</span></a></li>
                 
                
@@ -99,44 +84,31 @@
                                         </li>
                                         @endif
                             <li class="btn nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  v-pre>
                                     <span>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
                                 </a>
-
-                                <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}">
-                                        <span>{{ __('Voir Profil') }}</span>
-                                    </a>
-
-                                   
-                                </div> -->
-                                
-                                
-                                
-                                
-                                
-                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                            
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <ul class=" fa-ul ">
+                               <li > <a class="dropdown-item" href="/profil">
+                               <i  class="fa-li fas fa-user"></i> &nbsp; <span>{{ __('Profil') }}</span>
+                                    </a>
+                                  </li>
+                                  <li >
+                                  <i class="fa-li  fas fa-sign-out-alt"></i>
+                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <span>{{ __('Déconnexion') }}</span>
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    </li>
+                                    </ul>
                                 </div>
 
                             </li>
                         @endguest
-
-           
-
-
               </ul>
               </div>
             </nav>
@@ -156,68 +128,39 @@
       
         <footer class="site-footer">
       <div class="container">
-        <div class="row">
-          <div class="col-md-9">
             <div class="row">
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-4">
+                <h2 class="footer-heading mb-4">Liens rapides</h2>
                 <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">à propos</a></li>
                   <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Contact</a></li>
                 </ul>
               </div>
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Products</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Features</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+             
+          <div class="col-lg-4">
+            <h2 class="footer-heading mb-4">Aide</h2>
+            <p>Nous sommes heureux de vous aider à interagir avec nous et d'être parmi notre programme bêta. Pour avoir plus d'aide n'hesitez pas de nous enovoyer un email ou de nous contacter par un des moyens que vous pouvez les trouver sur la page de <a href="#">contact</a>.</p>
+          </div>
+                      <div class="col-lg-1"></div>
+
+          <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
                 <h2 class="footer-heading mb-4">Follow Us</h2>
                 <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
                 <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
                 <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                 <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <!-- <form action="#" method="post">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
-                </div>
-              </div>
-            </form> -->
-          </div>
         </div>
-        <div class="row pt-5 mt-5">
+        </div>
+          </div>
+
           <div class="col-12 text-md-center text-left">
             <p>
-           
              &copy;<script>document.write(new Date().getFullYear());</script>
-            
             </p>
           </div>
-        </div>
-      </div>
+      
     </footer>
   </div>
 

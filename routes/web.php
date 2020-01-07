@@ -1,5 +1,7 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
+$us = auth()->user();
+//echo($us);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,37 +15,46 @@
 
 Route::get('/','HomeController@index')->defaults('slug', '6')  ;
 
+Route::get('/profil/{id}','HomeController@profil');
+Route::get('/profil','HomeController@profile');
+
+
 Route::get('/home', 'HomeController@index')->defaults('slug', '6')  ;
 
 Route::get('/articles', 'HomeController@index')->defaults('slug','9')  ;
 
 
 Route::get('/ajout','HomeController@getAllcategories');
+// if(Auth::check() ){
+//    dd(Auth::check());
+Route::get('/parametresArticles', 'parametresController@getAllArticles')->middleware('auth');
 
-Route::get('/parametresArticles', 'parametresController@getAllArticles');
+Route::get('/parametresCategories', 'parametresController@getAllCategories')->middleware('auth');
 
-Route::get('/parametresCategories', 'parametresController@getAllCategories');
+Route::post('/ajouterCategories', 'parametresController@ajouterCategories')->middleware('auth');
 
-Route::post('/ajouterCategories', 'parametresController@ajouterCategories');
+Route::get('/DesignerAdmin', 'parametresController@designerAdmin')->middleware('auth');
 
-Route::get('/DesignerAdmin', 'parametresController@designerAdmin');
 
-Route::post('/DesignerAdmin', 'parametresController@searchUsers');
+Route::post('/DesignerAdmin', 'parametresController@searchUsers')->middleware('auth');
 
+
+Route::get('DeleteArticle/{id}','parametresController@deleteArticle')->middleware('auth');
+
+Route::get('AccepterArticle/{id}','parametresController@accepterArticle')->middleware('auth');
+
+Route::get('IgnorerArticle/{id}','parametresController@ignorerArticle')->middleware('auth');
+
+Route::get('DeleteUser/{id}','parametresController@deleteUser')->middleware('auth');
+
+Route::get('ChangerRole/{id}','parametresController@changerRole')->middleware('auth');
+
+
+// };
 
 Route::post('/ajout','HomeController@insertarticle',function () {
     return view('ajoutArticle');}
 );
-
-Route::get('DeleteArticle/{id}','parametresController@deleteArticle');
-
-Route::get('AccepterArticle/{id}','parametresController@accepterArticle');
-
-Route::get('IgnorerArticle/{id}','parametresController@ignorerArticle');
-
-Route::get('DeleteUser/{id}','parametresController@deleteUser');
-
-Route::get('ChangerRole/{id}','parametresController@changerRole');
 
 
 // Route::post('/ajout', function () {

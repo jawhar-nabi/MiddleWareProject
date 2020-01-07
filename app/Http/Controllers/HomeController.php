@@ -99,17 +99,10 @@ class HomeController extends Controller
             ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU'/*,users.tel as tel*/,'articles.*')
             ->paginate(9) ;
         }
-
-       
-
-
-
-
         if($slug == 6){
         return view ('welcome')->with('a',$articles)->with('b',$categories);
         }else{
             return view ('articles')->with('a',$articles);
-
         }
     }
 
@@ -222,6 +215,20 @@ class HomeController extends Controller
         //$state=DB::select('select * from categories where nom like "%h%"');
         return view ('articles')->with('a',$articles);
     }
+   
+    public function profile(){
+        $articles=DB::table('articles')
+        ->where('users_id', auth()->user()->id)
+        ->orderBy('id', 'desc')
+        ->join('categories','categories.id','=','articles.categories_id')
+        ->join('users','users.id','=','articles.users_id')
+        ->select('categories.nom as nomC','users.nom as nomU','users.prenom as prenomU','articles.*')
+        ->paginate(6) ;
+
+        return view ('profil') ->with('a',$articles);
+
+    }
+
 
 
 }
