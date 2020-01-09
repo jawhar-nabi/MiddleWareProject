@@ -54,7 +54,7 @@
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
 
-                <li class=" btn active"><a href="/"><span>Accueil</span></a></li>
+                <li class=" btn "><a href="/"><span>Accueil</span></a></li>
            
                 <li class=" btn"><a href="articles"><span>Articles</span></a></li>
                 
